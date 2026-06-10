@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="56" stroke="#1a3a5c" stroke-width="3" fill="#f8f9fa"/>
+  <circle cx="60" cy="60" r="50" stroke="#c5a55a" stroke-width="1.5" fill="none"/>
+  <path d="M60 32 L82 55 L75 85 L45 85 L38 55Z" fill="#1a3a5c"/>
+  <text x="60" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#c5a55a" font-weight="bold">END</text>
+  <circle cx="60" cy="85" r="4" fill="#c5a55a"/>
+</svg>

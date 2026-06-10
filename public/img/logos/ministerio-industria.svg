@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="56" stroke="#1a3a5c" stroke-width="3" fill="#f8f9fa"/>
+  <circle cx="60" cy="60" r="50" stroke="#c5a55a" stroke-width="1.5" fill="none"/>
+  <rect x="32" y="60" width="56" height="28" rx="3" fill="#1a3a5c"/>
+  <rect x="38" y="65" width="12" height="12" rx="1" fill="#c5a55a"/>
+  <rect x="54" y="65" width="12" height="12" rx="1" fill="#c5a55a"/>
+  <rect x="70" y="65" width="12" height="12" rx="1" fill="#c5a55a"/>
+  <rect x="52" y="36" width="16" height="24" rx="2" fill="#1a3a5c"/>
+  <text x="60" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" fill="#f8f9fa" font-weight="bold">MIND</text>
+  <line x1="38" y1="88" x2="82" y2="88" stroke="#c5a55a" stroke-width="1.5"/>
+</svg>

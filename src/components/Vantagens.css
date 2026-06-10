@@ -1,0 +1,9 @@
+.vantagens { background: var(--light); }
+.vantagens-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.vantagem-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; text-align: center; transition: all var(--transition); cursor: default; }
+.vantagem-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--red); }
+.vantagem-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+.vantagem-title { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 10px; }
+.vantagem-desc { font-size: 13.5px; color: var(--mid); line-height: 1.65; }
+@media (max-width: 1024px) { .vantagens-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .vantagens-grid { grid-template-columns: 1fr; } }

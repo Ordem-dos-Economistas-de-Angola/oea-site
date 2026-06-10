@@ -1,0 +1,10 @@
+.ticker { background: var(--red); color: white; padding: 9px 0; overflow: hidden; position: relative; }
+.ticker-label {
+  position: absolute; left: 0; top: 0; bottom: 0; background: var(--red-dark);
+  padding: 0 20px; display: flex; align-items: center; font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.12em; z-index: 2; white-space: nowrap;
+}
+.ticker-label::after { content: ''; position: absolute; right: -12px; top: 0; bottom: 0; width: 12px; background: var(--red-dark); clip-path: polygon(0 0, 100% 50%, 0 100%); }
+.ticker-track { display: flex; animation: tickerScroll 28s linear infinite; padding-left: 160px; }
+.ticker-item { display: flex; align-items: center; gap: 8px; padding: 0 40px 0 0; font-size: 13px; white-space: nowrap; }
+.ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }

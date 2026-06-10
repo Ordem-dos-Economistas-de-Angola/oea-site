@@ -1,0 +1,22 @@
+.topbar {
+  background: var(--black);
+  color: rgba(255,255,255,0.7);
+  font-size: 12px;
+  padding: 8px 0;
+  letter-spacing: 0.02em;
+}
+.topbar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topbar-left { display: flex; gap: 24px; align-items: center; }
+.topbar-right { display: flex; gap: 16px; align-items: center; }
+.topbar a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+.topbar a:hover { color: var(--gold); }
+.topbar-icon { display: flex; align-items: center; gap: 6px; }
+.topbar-divider { width: 1px; height: 14px; background: rgba(255,255,255,0.15); }
+@media (max-width: 768px) { .topbar { display: none; } }

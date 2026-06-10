@@ -1,0 +1,59 @@
+const icons = {
+  chart: <><path d="M4 20h16" /><path d="M6 16v-3" /><path d="M10 16v-6" /><path d="M14 16V8" /><path d="M18 16V5" /></>,
+  scroll: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="8" y1="13" x2="16" y2="13" /><line x1="8" y1="17" x2="16" y2="17" /></>,
+  handshake: <><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z" /></>,
+  newspaper: <><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0V7" /><path d="M14 6h4" /><path d="M14 10h4" /><path d="M14 14h4" /><path d="M6 10h3" /><path d="M6 14h3" /><path d="M6 6h3" /></>,
+  graduation: <><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" /></>,
+  globe: <><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></>,
+  trophy: <><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 7 7 7 7" /><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 17 7 17 7" /><path d="M12 16v4" /><path d="M8 20h8" /><path d="M12 9a5 5 0 0 0-5-5H7v4a5 5 0 0 0 5 5" /><path d="M12 9a5 5 0 0 1 5-5h0v4a5 5 0 0 1-5 5" /></>,
+  announcement: <><path d="M21 14.58A2 2 0 0 0 22 13V9a2 2 0 0 0-2-2H9l-3-3H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h2l3-3" /><path d="M21 14.58A2 2 0 0 0 22 13V9a2 2 0 0 0-2-2H9l-3-3H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h2l3-3" /></>,
+  laptop: <><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9" /><path d="M2 16h20" /><path d="M8 20h8" /><path d="M12 16v4" /></>,
+  briefcase: <><rect x="2" y="7" width="20" height="14" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></>,
+  city: <><path d="M4 11V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v7" /><path d="M10 21V8a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v13" /><path d="M16 21v-5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v5" /><path d="M2 21h20" /><path d="M6 14h1" /><path d="M6 17h1" /><path d="M12 14h1" /><path d="M12 17h1" /><path d="M18 14h1" /><path d="M18 17h1" /></>,
+  mountain: <><path d="M1 18l4-8 4 4 4-8 4 4 4-4 2 8z" /><path d="M1 18h22" /></>,
+  sunrise: <><circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 22v2" /><path d="M4.93 4.93l1.41 1.41" /><path d="M17.66 17.66l1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="M4.93 19.07l1.41-1.41" /><path d="M17.66 6.34l1.41-1.41" /></>,
+  wave: <><path d="M2 14c2.5-2 5.5-2 8 0s5.5 2 8 0" /><path d="M2 10c2.5-2 5.5-2 8 0s5.5 2 8 0" /><path d="M2 18c2.5-2 5.5-2 8 0s5.5 2 8 0" /></>,
+  building: <><rect x="3" y="2" width="18" height="20" rx="2" ry="2" /><circle cx="12" cy="10" r="1" /><path d="M7 22V10l5-4 5 4v12" /></>,
+  bank: <><polygon points="2 10 22 10 12 2 2 10" /><rect x="4" y="14" width="4" height="6" /><rect x="10" y="14" width="4" height="6" /><rect x="16" y="14" width="4" height="6" /><line x1="2" y1="22" x2="22" y2="22" /></>,
+  office: <><rect x="4" y="2" width="16" height="20" rx="2" /><path d="M9 22v-4h6v4" /><path d="M9 6h1" /><path d="M14 6h1" /><path d="M9 10h1" /><path d="M14 10h1" /><path d="M9 14h1" /><path d="M14 14h1" /></>,
+  scale: <><path d="M12 2v20" /><path d="M4 8c0 2 2 3 2 5s-2 3-2 5" /><path d="M20 8c0 2-2 3-2 5s2 3 2 5" /><path d="M4 22h16" /><path d="M12 22L4 8c2 0 4-1 4-3l4-2 4 2c0 2 2 3 4 3L12 22z" /></>,
+  lightbulb: <><path d="M9 18h6" /><path d="M10 22h4" /><path d="M12 2a6 6 0 0 0-6 6c0 3 2 5 2 5h8s2-2 2-5a6 6 0 0 0-6-6" /></>,
+  search: <><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></>,
+  pin: <><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></>,
+  clock: <><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></>,
+  phone: <><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></>,
+  email: <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></>,
+  suit: <><path d="M16 4V2H8v2" /><path d="M4 22V8a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v14" /><path d="M4 12h16" /><path d="M8 14h1" /><path d="M15 14h1" /><path d="M8 18h8" /><path d="M8 22h8" /></>,
+  user: <><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></>,
+  clipboard: <><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><rect x="8" y="2" width="8" height="4" rx="1" ry="1" /></>,
+  play: <><polygon points="5 3 19 12 5 21 5 3" /></>,
+  close: <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>,
+  wallet: <><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" /><path d="M3 5v14a2 2 0 0 0 2 2h16v-5" /><path d="M18 12a2 2 0 1 0 0 4h4v-4z" /></>,
+  check: <><polyline points="20 6 9 17 4 12" /></>,
+  edit: <><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" /></>,
+  lock: <><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></>,
+  users: <><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></>,
+  rocket: <><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" /><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /></>,
+  message: <><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></>,
+  bell: <><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></>,
+  facebook: <><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></>,
+  twitter: <><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" /></>,
+  linkedin: <><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></>,
+  link: <><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></>,
+  eye: <><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></>,
+  'thumbs-up': <><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z" /><polyline points="7 22 7 13" /></>,
+  'thumbs-down': <><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z" /><polyline points="17 2 17 11" /></>,
+  instagram: <><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></>,
+  tiktok: <><path d="M9 12a4 4 0 1 0 4 4V2h4a4 4 0 0 0 4 4" /><path d="M9 12h4" /></>,
+  youtube: <><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" /><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" /></>,
+};
+
+export default function Icon({ name, size = 24, className = '' }) {
+  const icon = icons[name];
+  if (!icon) return null;
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      {icon}
+    </svg>
+  );
+}

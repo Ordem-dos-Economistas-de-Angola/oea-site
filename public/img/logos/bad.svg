@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="56" stroke="#1a3a5c" stroke-width="3" fill="#f8f9fa"/>
+  <circle cx="60" cy="60" r="50" stroke="#c5a55a" stroke-width="1.5" fill="none"/>
+  <circle cx="60" cy="52" r="22" fill="#1a3a5c"/>
+  <text x="60" y="52" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="18" fill="#f8f9fa" font-weight="bold">BAD</text>
+  <text x="60" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="#1a3a5c">African Development</text>
+  <text x="60" y="87" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="#1a3a5c">Bank Group</text>
+</svg>

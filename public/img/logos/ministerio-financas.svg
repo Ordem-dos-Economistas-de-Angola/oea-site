@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="56" stroke="#1a3a5c" stroke-width="3" fill="#f8f9fa"/>
+  <circle cx="60" cy="60" r="50" stroke="#c5a55a" stroke-width="1.5" fill="none"/>
+  <rect x="35" y="45" width="50" height="35" rx="4" fill="#1a3a5c"/>
+  <text x="60" y="68" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#c5a55a" font-weight="bold">MINFIN</text>
+  <path d="M45 45V38h30v7" stroke="#1a3a5c" stroke-width="2" fill="none"/>
+  <rect x="38" y="80" width="44" height="3" rx="1" fill="#c5a55a"/>
+</svg>
