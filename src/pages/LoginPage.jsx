@@ -1,22 +1,30 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Topbar from '../components/Topbar';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ScrollTop from '../components/ScrollTop';
-import Icon from '../components/Icon';
 import './LoginPage.css';
 
 export default function LoginPage() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({ email: '', password: '' });
   const [remember, setRemember] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    setError('');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (form.email === 'admin@oea.ao' && form.password === 'admin') {
+      localStorage.setItem('oea_admin_auth', JSON.stringify({ user: 'Administrador', email: form.email }));
+      navigate('/admin');
+    } else {
+      setError('Credenciais inválidas. Tente novamente.');
+    }
   };
 
   return (
@@ -41,26 +49,27 @@ export default function LoginPage() {
                 </p>
               </div>
 
-              <form className="login-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="email">Email</label>
-                  <input id="email" name="email" type="email" value={form.email} onChange={handleChange} className="form-input" placeholder="exemplo@email.com" required />
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="password">Senha</label>
-                  <input id="password" name="password" type="password" value={form.password} onChange={handleChange} className="form-input" placeholder="A sua senha" required />
-                </div>
-                <div className="login-options">
-                  <label className="login-remember">
-                    <input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} />
-                    <span>Lembrar-me</span>
-                  </label>
-                  <a href="#" className="login-forgot">Esqueceu a senha?</a>
-                </div>
-                <button type="submit" className="btn btn-primary login-submit">
-                  Entrar
-                </button>
-              </form>
+                  <form className="login-form" onSubmit={handleSubmit}>
+                    {error && <div className="login-error">{error}</div>}
+                    <div className="form-group">
+                      <label className="form-label" htmlFor="email">Email</label>
+                      <input id="email" name="email" type="email" value={form.email} onChange={handleChange} className="form-input" placeholder="admin@oea.ao" required />
+                    </div>
+                    <div className="form-group">
+                      <label className="form-label" htmlFor="password">Senha</label>
+                      <input id="password" name="password" type="password" value={form.password} onChange={handleChange} className="form-input" placeholder="admin" required />
+                    </div>
+                    <div className="login-options">
+                      <label className="login-remember">
+                        <input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} />
+                        <span>Lembrar-me</span>
+                      </label>
+                      <a href="#" className="login-forgot">Esqueceu a senha?</a>
+                    </div>
+                    <button type="submit" className="btn btn-primary login-submit">
+                      Entrar
+                    </button>
+                  </form>
 
               <div className="login-divider">
                 <span>ou continue com</span>

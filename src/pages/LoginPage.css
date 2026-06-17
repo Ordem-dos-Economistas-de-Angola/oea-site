@@ -17,10 +17,20 @@
   margin-bottom: 32px;
 }
 
+.login-error {
+  padding: 10px 14px;
+  background: rgba(192,24,26,0.06);
+  border: 1px solid rgba(192,24,26,0.2);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--red);
+  text-align: center;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
 
 .login-options {
