@@ -10,7 +10,7 @@ import IndicadoresPanel from '../../components/IndicadoresPanel/IndicadoresPanel
 import Admissao from '../../components/Admissao/Admissao';
 import Vantagens from '../../components/Vantagens/Vantagens';
 import Delegacoes from '../../components/Delegacoes/Delegacoes';
-import Protocolos from '../../components/Protocolos/Protocolos';
+// import Protocolos from '../../components/Protocolos/Protocolos';
 import Newsletter from '../../components/Newsletter/Newsletter';
 import Footer from '../../components/Footer/Footer';
 import SearchOverlay from '../../components/SearchOverlay/SearchOverlay';
@@ -39,7 +39,7 @@ export default function Home() {
       <Admissao />
       <Vantagens />
       <Delegacoes />
-      <Protocolos />
+      {/* <Protocolos /> */}
       <Newsletter />
       <Footer />
       <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />

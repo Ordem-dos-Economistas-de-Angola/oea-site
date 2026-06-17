@@ -85,11 +85,11 @@ export default function Footer() {
                   <Icon name="newspaper" size={12} /> Notícias
                 </a>
               </li>
-              <li key="Protocolos">
+              {/* <li key="Protocolos">
                 <a href="/#protocolos">
                   <Icon name="scroll" size={12} /> Protocolos
                 </a>
-              </li>
+              </li> */}
               <li key="Estatutos">
                 <a href="#">
                   <Icon name="clipboard" size={12} /> Estatutos

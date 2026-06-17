@@ -58,7 +58,7 @@ export default function Navbar({ onSearchOpen }) {
               </div>
             </li>
             <li className="nav-item"><a className="nav-link" href={h('#vantagens')}>Vantagens</a></li>
-            <li className="nav-item"><a className="nav-link" href={h('#protocolos')}>Protocolos</a></li>
+            {/* <li className="nav-item"><a className="nav-link" href={h('#protocolos')}>Protocolos</a></li> */}
             <li className="nav-item"><Link className="nav-link" to="/noticias">Notícias</Link></li>
             <li className="nav-item"><a className="nav-link" href={h('#eventos')}>Eventos</a></li>
           </ul>
@@ -81,7 +81,7 @@ export default function Navbar({ onSearchOpen }) {
           <Link to="/delegacao-norte" onClick={closeMobile}>Delegações</Link>
           <Link to="/admissao" onClick={closeMobile}>Admissões</Link>
           <a href={h('#vantagens')} onClick={closeMobile}>Vantagens</a>
-          <a href={h('#protocolos')} onClick={closeMobile}>Protocolos</a>
+          {/* <a href={h('#protocolos')} onClick={closeMobile}>Protocolos</a> */}
           <Link to="/noticias" onClick={closeMobile}>Notícias</Link>
           <a href={h('#eventos')} onClick={closeMobile}>Eventos</a>
           <div className="mobile-nav-actions">
