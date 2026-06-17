@@ -12,10 +12,10 @@ export default function Eventos() {
             <div className="gold-sep" />
             <h2 className="section-title" style={{marginBottom:0}}>Próximos Eventos</h2>
           </div>
-          <a href="#" className="btn btn-outline">Ver agenda completa →</a>
+          <a href="/eventos" className="btn btn-outline">Ver agenda completa →</a>
         </div>
         <div className="eventos-grid">
-          {EVENTOS.map((ev, i) => (
+          {EVENTOS.slice(0, 3).map((ev, i) => (
             <div className="evento-card reveal" key={i} style={{transitionDelay:`${0.1 + i * 0.1}s`}}>
               <div className="evento-header" style={{background: ev.headerBg}}>
                 <div className="evento-date">

@@ -183,22 +183,180 @@ export const NOTICIAS_SIDEBAR = [
 
 export const EVENTOS = [
   {
+    id: 1,
     day: '30', month: 'Junho 2026', type: 'Webinar',
+    category: 'Formação Online',
     title: 'Economia e Gestão do Petróleo — Perspectivas para 2027',
     time: '15:00 – 17:00', local: 'Online — Zoom', vagas: 'Aberto a membros e convidados',
     status: 'Inscrições abertas', cta: 'Inscrever-me →', headerBg: 'var(--red)',
+    formadora: 'Dra. Isabel Gomes',
+    image: null,
+    excerpt: 'Webinar sobre as perspectivas para o sector petrolífero angolano em 2027, com análise de tendências globais e implicações para a economia nacional.',
+    content: `A Ordem dos Economistas de Angola (OEA) convida todos os seus membros e convidados para o webinar "Economia e Gestão do Petróleo — Perspectivas para 2027", uma iniciativa que visa debater as tendências e desafios do sector petrolífero angolano no actual contexto global.
+
+O webinar será apresentado pela Dra. Isabel Gomes, economista sénior com vasta experiência no sector petrolífero e consultora de várias instituições internacionais.
+
+Durante a sessão serão abordados temas como a evolução dos preços do petróleo no mercado internacional, as estratégias de diversificação económica, o impacto das políticas energéticas globais na produção nacional, e as perspectivas para o futuro da indústria petrolífera em Angola.
+
+A participação é gratuita e aberta a membros e convidados, mediante inscrição prévia. Os participantes receberão um certificado de participação.`,
   },
   {
+    id: 2,
     day: '15', month: 'Julho 2026', type: 'Congresso',
+    category: 'Grande Evento',
     title: '1º Congresso Nacional dos Economistas de Angola',
     time: '09:00 – 18:00', local: 'Hotel Intercontinental, Luanda', vagas: '≥ 300 participantes esperados',
     status: 'Brevemente', cta: 'Saber mais →', headerBg: 'var(--red-dark)',
+    formadora: 'Vários oradores',
+    image: null,
+    excerpt: 'O primeiro grande congresso que reunirá economistas de todo o país para debater o futuro da economia angolana e o papel dos economistas no desenvolvimento nacional.',
+    content: `A Ordem dos Economistas de Angola (OEA) realiza nos dias 15 e 16 de Julho de 2026 o 1º Congresso Nacional dos Economistas de Angola, um evento histórico que reunirá economistas de todas as províncias do país.
+
+O congresso terá como tema central "Valorizar o Economista, Afirmar a Ordem, Fortalecer Angola" e contará com painéis de discussão sobre os grandes desafios económicos nacionais, incluindo a diversificação da economia, a transformação digital, o desenvolvimento sustentável e o papel do economista na formulação de políticas públicas.
+
+Estão previstas conferências plenárias com oradores nacionais e internacionais, workshops temáticos, sessões de apresentação de trabalhos académicos e uma feira de oportunidades profissionais.
+
+O evento será também palco do lançamento oficial do Prémio Anual do Economista Angolano e da apresentação do Centro de Estudos e Formação da OEA.`,
   },
   {
+    id: 3,
     day: '08', month: 'Agosto 2026', type: 'Mentoria',
+    category: 'Programa Profissional',
     title: 'Programa de Mentoria Profissional — Candidaturas Abertas',
     time: '14:00 – 16:00', local: 'Sede OEA, Luanda', vagas: '30 vagas disponíveis',
     status: 'Candidaturas abertas', cta: 'Candidatar-me →', headerBg: '#6B3C00',
+    formadora: 'Equipa OEA',
+    image: null,
+    excerpt: 'Programa estruturado de mentoria que liga economistas experientes às novas gerações, promovendo a troca de conhecimento e o desenvolvimento profissional.',
+    content: `A Ordem dos Economistas de Angola (OEA) anuncia a abertura das candidaturas para o Programa de Mentoria Profissional, uma iniciativa que visa promover a troca de conhecimento e experiências entre economistas seniores e jovens profissionais.
+
+O programa tem a duração de 6 meses e incluirá sessões mensais de mentoria, workshops de desenvolvimento profissional, e oportunidades de networking com profissionais de referência no mercado.
+
+Os mentores são economistas com mais de 10 anos de experiência profissional, seleccionados por mérito e disponibilidade para partilhar o seu conhecimento e orientar as novas gerações de economistas angolanos.
+
+Os mentorandos terão a oportunidade de desenvolver competências técnicas e comportamentais, receber orientação profissional personalizada, e alargar a sua rede de contactos no sector económico.
+
+As candidaturas estão abertas até ao dia 31 de Julho de 2026. Os resultados serão anunciados no dia 5 de Agosto.`,
+  },
+  {
+    id: 4,
+    day: '20', month: 'Setembro 2026', type: 'Workshop',
+    category: 'Formação',
+    title: 'Workshop de Análise de Dados para Economistas',
+    time: '09:00 – 17:00', local: 'Sede OEA, Luanda', vagas: '25 vagas disponíveis',
+    status: 'Inscrições abertas', cta: 'Inscrever-me →', headerBg: 'var(--red)',
+    formadora: 'Dr. Carlos Ferreira',
+    image: null,
+    excerpt: 'Workshop intensivo de análise de dados económicos com ferramentas modernas, destinado a economistas que desejam aprimorar as suas competências técnicas.',
+    content: `A Ordem dos Economistas de Angola (OEA) promove o Workshop de Análise de Dados para Economistas, uma formação intensiva de um dia dedicada ao desenvolvimento de competências práticas em análise de dados económicos.
+
+O workshop será ministrado pelo Dr. Carlos Ferreira, especialista em econometria e análise de dados, com experiência em instituições de investigação económica nacionais e internacionais.
+
+Os participantes terão a oportunidade de aprender técnicas avançadas de visualização de dados, modelação estatística aplicada à economia, e utilização de ferramentas modernas de análise como Python, R e Power BI.
+
+O programa inclui uma componente prática com exercícios baseados em dados reais da economia angolana, permitindo aos participantes aplicar imediatamente os conhecimentos adquiridos.
+
+Os participantes devem trazer o seu próprio computador portátil. Será fornecido material didáctico e certificado de participação.`,
+  },
+  {
+    id: 5,
+    day: '10', month: 'Outubro 2026', type: 'Conferência',
+    category: 'Evento Anual',
+    title: 'Conferência Anual do Orçamento Geral do Estado 2027',
+    time: '09:00 – 17:00', local: 'Centro de Convenções de Talatona, Luanda', vagas: '200 participantes',
+    status: 'Brevemente', cta: 'Saber mais →', headerBg: 'var(--gold)',
+    formadora: 'Vários oradores',
+    image: null,
+    excerpt: 'A conferência anual dedicada à análise e debate do Orçamento Geral do Estado, reunindo especialistas em finanças públicas e política orçamental.',
+    content: `A Ordem dos Economistas de Angola (OEA) realiza a Conferência Anual do Orçamento Geral do Estado (OGE) 2027, um evento de referência para a análise e debate das contas públicas nacionais.
+
+A conferência reunirá economistas, académicos, gestores públicos e privados, e representantes de instituições internacionais para discutir as prioridades orçamentais para o próximo ano fiscal.
+
+Serão apresentados painéis temáticos sobre a alocação de recursos, a sustentabilidade fiscal, o impacto do OGE nos sectores sociais, e as perspectivas económicas para 2027.
+
+O evento contará ainda com a apresentação do parecer técnico da OEA sobre o OGE 2027, elaborado por uma comissão de economistas especializados em finanças públicas.
+
+A participação na conferência inclui coffee break, almoço e documentação do evento.`,
+  },
+  {
+    id: 6,
+    day: '05', month: 'Novembro 2026', type: 'Seminário',
+    category: 'Formação',
+    title: 'Seminário de Economia Digital e Inovação Financeira',
+    time: '09:00 – 18:00', local: 'Online — Zoom e Sede OEA', vagas: '100 vagas (presencial e online)',
+    status: 'Inscrições abertas', cta: 'Inscrever-me →', headerBg: 'var(--red-dark)',
+    formadora: 'Dr. Miguel Santos',
+    image: null,
+    excerpt: 'Seminário sobre o impacto da transformação digital na economia e no sistema financeiro angolano, com especialistas nacionais e internacionais.',
+    content: `A Ordem dos Economistas de Angola (OEA) organiza o Seminário de Economia Digital e Inovação Financeira, um evento que abordará as profundas transformações que a digitalização está a trazer para a economia e o sistema financeiro angolano.
+
+O seminário será conduzido pelo Dr. Miguel Santos, especialista em economia digital e consultor do Banco Mundial para projectos de transformação digital em África.
+
+Serão debatidos temas como as fintechs e o futuro dos serviços financeiros, a inclusão financeira digital, as criptomoedas e a regulação dos activos digitais, o comércio electrónico e a economia colaborativa.
+
+O evento incluirá estudos de caso práticos de sucesso implementados noutros países africanos, bem como uma mesa-redonda com representantes de instituições financeiras, startups tecnológicas e entidades reguladoras.
+
+O seminário terá formato híbrido, permitindo a participação presencial na sede da OEA ou online através da plataforma Zoom.`,
+  },
+  {
+    id: 7,
+    day: '22', month: 'Novembro 2026', type: 'Palestra',
+    category: 'Institucional',
+    title: 'Palestra — O Papel do Economista na Sociedade Angolana',
+    time: '15:00 – 17:00', local: 'Auditório da Universidade Agostinho Neto', vagas: '150 vagas',
+    status: 'Inscrições abertas', cta: 'Inscrever-me →', headerBg: 'var(--red)',
+    formadora: 'Bastonário da OEA',
+    image: null,
+    excerpt: 'Palestra aberta ao público sobre a importância e o papel do economista no desenvolvimento económico e social de Angola.',
+    content: `A Ordem dos Economistas de Angola (OEA) promove a palestra "O Papel do Economista na Sociedade Angolana", uma iniciativa aberta ao público que visa refletir sobre a contribuição dos economistas para o desenvolvimento do país.
+
+A palestra será proferida pelo Bastonário da OEA e contará com a participação de economistas de renome que partilharão as suas experiências e visões sobre a profissão.
+
+Serão abordados temas como a responsabilidade social do economista, a ética profissional, a participação no debate público, e a importância da formação contínua para a relevância da classe económica nacional.
+
+O evento destina-se a estudantes de economia, economistas profissionais, académicos e ao público em geral interessado nas questões económicas do país.
+
+A entrada é livre, mas sujeita à capacidade do auditório. Recomenda-se a inscrição prévia para garantir lugar.`,
+  },
+  {
+    id: 8,
+    day: '12', month: 'Dezembro 2026', type: 'Formação',
+    category: 'Curso',
+    title: 'Curso de Actualização em Finanças Públicas',
+    time: '09:00 – 17:00', local: 'Sede OEA, Luanda', vagas: '30 vagas',
+    status: 'Em breve', cta: 'Saber mais →', headerBg: '#6B3C00',
+    formadora: 'Equipa de Formadores OEA',
+    image: null,
+    excerpt: 'Curso intensivo de actualização em finanças públicas para economistas que actuam no sector público ou desejam aprofundar os seus conhecimentos na área.',
+    content: `A Ordem dos Economistas de Angola (OEA) oferece o Curso de Actualização em Finanças Públicas, uma formação intensiva de dois dias destinada a economistas que actuam no sector público ou que desejam aprofundar os seus conhecimentos nesta área crucial.
+
+O curso abordará temas como a gestão do orçamento público, a contabilidade pública, o controlo financeiro, a dívida pública, a tributação e a política fiscal.
+
+A formação será ministrada por uma equipa de formadores da OEA com vasta experiência em finanças públicas, incluindo economistas que ocuparam cargos de destaque na administração pública.
+
+O curso incluirá estudos de caso práticos baseados na realidade angolana, exercícios de aplicação e uma avaliação final para certificação.
+
+Os participantes receberão um certificado de formação emitido pela OEA e material didáctico de apoio.`,
+  },
+  {
+    id: 9,
+    day: '18', month: 'Janeiro 2027', type: 'Webinar',
+    category: 'Formação Online',
+    title: 'Webinar — Tendências da Economia Global para 2027',
+    time: '15:00 – 17:00', local: 'Online — Zoom', vagas: 'Aberto a membros e convidados',
+    status: 'Inscrições abertas', cta: 'Inscrever-me →', headerBg: 'var(--red)',
+    formadora: 'Dra. Ana Paula Costa',
+    image: null,
+    excerpt: 'Webinar de arranque de 2027 com análise das principais tendências da economia global e o seu impacto esperado em Angola.',
+    content: `A Ordem dos Economistas de Angola (OEA) inicia o ano de 2027 com o webinar "Tendências da Economia Global para 2027", uma sessão de análise e prospetiva sobre os principais factores que moldarão a economia mundial no próximo ano.
+
+O webinar será apresentado pela Dra. Ana Paula Costa, economista-chefe de uma instituição financeira internacional e membro honorário da OEA.
+
+Serão analisadas as tendências macroeconómicas globais, as perspectivas para os preços das matérias-primas, o impacto das políticas monetárias dos bancos centrais, as cadeias de abastecimento globais, e as implicações para a economia angolana.
+
+A sessão incluirá um segmento de perguntas e respostas, permitindo aos participantes interagir directamente com a oradora e esclarecer as suas dúvidas.
+
+A participação é gratuita e aberta a membros e convidados. Será emitido certificado de participação.`,
   },
 ];
 

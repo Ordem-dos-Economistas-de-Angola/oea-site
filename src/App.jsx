@@ -20,6 +20,8 @@ import AdmissaoEstrangeirosPage from './pages/AdmissaoEstrangeirosPage';
 import AdmissaoTaxasPage from './pages/AdmissaoTaxasPage';
 import NoticiasPage from './pages/NoticiasPage';
 import NoticiaPage from './pages/NoticiaPage';
+import EventosPage from './pages/EventosPage';
+import EventoPage from './pages/EventoPage';
 
 export default function App() {
   return (
@@ -45,6 +47,8 @@ export default function App() {
         <Route path="/admissao-taxas" element={<AdmissaoTaxasPage />} />
         <Route path="/noticias" element={<NoticiasPage />} />
         <Route path="/noticia/:id" element={<NoticiaPage />} />
+        <Route path="/eventos" element={<EventosPage />} />
+        <Route path="/evento/:id" element={<EventoPage />} />
       </Routes>
       <WhatsAppBtn />
     </BrowserRouter>
