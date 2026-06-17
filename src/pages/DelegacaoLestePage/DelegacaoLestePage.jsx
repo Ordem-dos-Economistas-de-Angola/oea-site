@@ -35,7 +35,7 @@ export default function DelegacaoLestePage() {
         <div className="section-inner">
           <div style={{ marginBottom: 16 }}>
             <Link to="/" style={{ fontSize: 13, color: 'var(--mid)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-              � � Voltar ao site
+              ← Voltar ao site
             </Link>
           </div>
           <div className="section-header">

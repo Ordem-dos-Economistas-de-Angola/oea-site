@@ -20,7 +20,7 @@ export default function EventoPage() {
             <div style={{fontSize:64,marginBottom:24,color:'var(--red)',opacity:0.3}}><Icon name="clock" size={64} /></div>
             <h2 style={{fontFamily:'Playfair Display',fontSize:28,fontWeight:700,color:'var(--black)',marginBottom:16}}>Evento não encontrado</h2>
             <p style={{color:'var(--mid)',marginBottom:32}}>O evento que procura não existe ou foi removido.</p>
-            <Link to="/eventos" className="btn btn-outline">� � Todos os Eventos</Link>
+            <Link to="/eventos" className="btn btn-outline">← Todos os Eventos</Link>
           </div>
         </section>
         <Footer />
@@ -42,7 +42,7 @@ export default function EventoPage() {
         <div className="section-inner">
           <div style={{marginBottom:16}}>
             <Link to="/eventos" style={{fontSize:13,color:'var(--mid)',textDecoration:'none',display:'inline-flex',alignItems:'center',gap:6}}>
-              � � Todos os Eventos
+              ← Todos os Eventos
             </Link>
           </div>
 
@@ -214,7 +214,7 @@ export default function EventoPage() {
                     </div>
                     <div className="evento-all-footer">
                       <span className="evento-all-footer-label">{ev.status}</span>
-                      <span className="evento-all-cta">Detalhes � </span>
+                      <span className="evento-all-cta">Detalhes →</span>
                     </div>
                   </Link>
                 ))}

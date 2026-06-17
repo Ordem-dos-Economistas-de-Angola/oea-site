@@ -78,7 +78,7 @@ export default function AdmissaoTaxasPage() {
         <div className="section-inner">
           <div style={{ marginBottom: 16 }}>
             <Link to="/" style={{ fontSize: 13, color: 'var(--mid)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-              � � Voltar ao site
+              ← Voltar ao site
             </Link>
           </div>
           <div className="section-header">
@@ -182,7 +182,7 @@ export default function AdmissaoTaxasPage() {
                   <strong>IBAN:</strong> AO06.0044.0000.2563.8184.1018.5
                 </div>
                 <p style={{ fontSize: 13, color: 'var(--mid)', marginTop: 12 }}>
-                  ORDEM DOS ECONOMISTAS DE ANGOLA � O.E.A
+                  ORDEM DOS ECONOMISTAS DE ANGOLA – O.E.A
                 </p>
               </div>
             </div>

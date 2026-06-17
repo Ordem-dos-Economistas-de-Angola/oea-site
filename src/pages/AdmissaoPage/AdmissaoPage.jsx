@@ -465,7 +465,7 @@ export default function AdmissaoPage() {
               <div className="total-label">Total a Pagar (1.º Ano)</div>
               <div className="total-amount">Kz 55.000</div>
               <div className="total-desc">
-                Jóia Kz 25.000 + 12 � Quota Kz 2.500
+                Jóia Kz 25.000 + 12 × Quota Kz 2.500
               </div>
             </div>
 
@@ -562,7 +562,7 @@ export default function AdmissaoPage() {
                 <div className="iban-box">
                   Banco: BAI &nbsp;|&nbsp; IBAN: AO06 0040 0000 1234 5678 9010 0
                   <br />
-                  NIB: 0040 0000 1234 5678 9010 0 &nbsp;|&nbsp; Titular: OEA �
+                  NIB: 0040 0000 1234 5678 9010 0 &nbsp;|&nbsp; Titular: OEA –
                   Ordem dos Economistas de Angola
                 </div>
                 <div className="form-row">
@@ -614,7 +614,7 @@ export default function AdmissaoPage() {
                 <br />
                 1. Dirija-se a qualquer terminal Multicaixa
                 <br />
-                2. Selecione "Pagamentos" �  "Outras Entidades"
+                 2. Selecione "Pagamentos" → "Outras Entidades"
                 <br />
                 3. Digite o código da OEA:{" "}
                 <strong style={{ color: "var(--red)" }}>12345</strong>
@@ -640,7 +640,7 @@ export default function AdmissaoPage() {
                 </strong>
                 <br />
                 Dirija-se à Secretaria da OEA na sede em Luanda ou a qualquer
-                delegação regional, em horário útil (Seg�Sex, 09h00�17h00), e
+                delegação regional, em horário útil (Seg–Sex, 09h00–17h00), e
                 efectue o pagamento em numerário ou multicaixa.
               </div>
             )}
@@ -695,12 +695,12 @@ export default function AdmissaoPage() {
                 gap: 6,
               }}
             >
-              � � Voltar ao site
+              &larr; Voltar ao site
             </Link>
           </div>
           <div className="section-header center" style={{ marginBottom: 48 }}>
             <div className="section-tag" style={{ justifyContent: "center" }}>
-              Inscrição � Etapa {step} de {TOTAL_STEPS}
+              Inscrição — Etapa {step} de {TOTAL_STEPS}
             </div>
             <div className="gold-sep" style={{ margin: "16px auto" }} />
             <h2 className="section-title">Formulário de Inscrição</h2>
@@ -744,7 +744,7 @@ export default function AdmissaoPage() {
                       onClick={prevStep}
                       style={{ fontSize: 14, padding: "12px 28px" }}
                     >
-                      � � Anterior
+                      &larr; Anterior
                     </button>
                   )}
                 </div>
@@ -755,7 +755,7 @@ export default function AdmissaoPage() {
                     onClick={nextStep}
                     style={{ fontSize: 14, padding: "12px 28px" }}
                   >
-                    Próximo � 
+                    Próximo &rarr;
                   </button>
                 ) : (
                   <button
@@ -763,7 +763,7 @@ export default function AdmissaoPage() {
                     className="btn btn-primary"
                     style={{ fontSize: 15, padding: "14px 36px" }}
                   >
-                    Submeter Candidatura � 
+                    Submeter Candidatura &rarr;
                   </button>
                 )}
               </div>
@@ -849,7 +849,7 @@ export default function AdmissaoPage() {
                     secretaria.geral@ordemeconomistas.ao
                   </div>
                   <div style={{ fontSize: 14, color: "var(--mid)" }}>
-                    <Icon name="clock" size={14} /> Seg�Sex: 09h00�17h00
+                    <Icon name="clock" size={14} /> Seg–Sex: 09h00–17h00
                   </div>
                 </div>
               </div>

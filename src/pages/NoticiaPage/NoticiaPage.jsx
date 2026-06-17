@@ -93,7 +93,7 @@ export default function NoticiaPage() {
             <div style={{fontSize:64,marginBottom:24,color:'var(--red)',opacity:0.3}}><Icon name="newspaper" size={64} /></div>
             <h2 style={{fontFamily:'Playfair Display',fontSize:28,fontWeight:700,color:'var(--black)',marginBottom:16}}>Notícia não encontrada</h2>
             <p style={{color:'var(--mid)',marginBottom:32}}>A notícia que procura não existe ou foi removida.</p>
-            <Link to="/noticias" className="btn btn-outline">� � Todas as Notícias</Link>
+            <Link to="/noticias" className="btn btn-outline">← Todas as Notícias</Link>
           </div>
         </section>
         <Footer />
@@ -112,7 +112,7 @@ export default function NoticiaPage() {
         <div className="section-inner">
           <div style={{marginBottom:16}}>
             <Link to="/noticias" style={{fontSize:13,color:'var(--mid)',textDecoration:'none',display:'inline-flex',alignItems:'center',gap:6}}>
-              � � Todas as Notícias
+              ← Todas as Notícias
             </Link>
           </div>
 
@@ -201,8 +201,8 @@ export default function NoticiaPage() {
                       onClick={() => setShowAllComments(!showAllComments)}
                     >
                       {showAllComments
-                        ? 'Mostrar menos comentários � '
-                        : `Ver mais ${comments.length - COMMENTS_PER_PAGE} comentários � `}
+                        ? 'Mostrar menos comentários ▲'
+                        : `Ver mais ${comments.length - COMMENTS_PER_PAGE} comentários ▼`}
                     </button>
                   </div>
                 )}
@@ -222,7 +222,7 @@ export default function NoticiaPage() {
                     <div className="noticia-card-body">
                       <div className="noticia-meta"><span>{n.date}</span></div>
                       <h3 className="noticia-card-title">{n.title}</h3>
-                      <div className="noticia-read-more">Ler mais � </div>
+                      <div className="noticia-read-more">Ler mais →</div>
                     </div>
                   </Link>
                 ))}

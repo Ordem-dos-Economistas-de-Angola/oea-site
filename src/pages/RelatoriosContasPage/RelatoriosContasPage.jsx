@@ -8,7 +8,7 @@ import { useRelatoriosContasPageState } from './state';
 import '../OrdemPages.css';
 
 const RELATORIOS = [
-  { year: '2026', title: 'Relatório de Actividades 2026', desc: 'Relatório das actividades realizadas no primeiro ano do mandato 2026�2030.', size: '1.8 MB' },
+  { year: '2026', title: 'Relatório de Actividades 2026', desc: 'Relatório das actividades realizadas no primeiro ano do mandato 2026–2030.', size: '1.8 MB' },
   { year: '2025', title: 'Relatório de Actividades 2025', desc: 'Relatório anual de actividades e balanço do mandato anterior.', size: '2.1 MB' },
   { year: '2024', title: 'Relatório de Actividades 2024', desc: 'Relatório anual de actividades e demonstrações financeiras.', size: '1.6 MB' },
   { year: '2023', title: 'Relatório de Actividades 2023', desc: 'Relatório anual de actividades e contas do exercício.', size: '1.9 MB' },
@@ -32,7 +32,7 @@ export default function RelatoriosContasPage() {
         <div className="section-inner">
           <div style={{ marginBottom: 16 }}>
             <Link to="/" style={{ fontSize: 13, color: 'var(--mid)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-              � � Voltar ao site
+              ← Voltar ao site
             </Link>
           </div>
           <div className="section-header">

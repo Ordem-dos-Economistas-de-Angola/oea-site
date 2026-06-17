@@ -8,26 +8,26 @@ import { usePlanosActividadesPageState } from './state';
 import '../OrdemPages.css';
 
 const FASES = [
-  { num: '0�6 meses', label: 'Arranque', color: 'var(--red)', icon: 'rocket', items: ['Diagnóstico institucional', 'Actualização cadastral', 'Canais digitais activos', 'Portal digital versão inicial', 'Protocolos institucionais', 'Webinars e Podcast'] },
-  { num: '6�18 meses', label: 'Consolidação', color: 'var(--gold)', icon: 'chart', items: ['Congresso Nacional', 'Prémio Anual do Economista', 'Centro de Estudos e Formação', 'Biblioteca da Ordem', 'Conselhos Regionais', 'Programa de Mentoria'] },
-  { num: '18�36 meses', label: 'Afirmação', color: 'var(--red-dark)', icon: 'trophy', items: ['Digitalização total', '5 Conselhos Regionais', 'Barómetro de Fiscalidade', 'Parcerias internacionais', 'Programas de carreira', '80% satisfação membros'] },
+  { num: '0–6 meses', label: 'Arranque', color: 'var(--red)', icon: 'rocket', items: ['Diagnóstico institucional', 'Actualização cadastral', 'Canais digitais activos', 'Portal digital versão inicial', 'Protocolos institucionais', 'Webinars e Podcast'] },
+  { num: '6–18 meses', label: 'Consolidação', color: 'var(--gold)', icon: 'chart', items: ['Congresso Nacional', 'Prémio Anual do Economista', 'Centro de Estudos e Formação', 'Biblioteca da Ordem', 'Conselhos Regionais', 'Programa de Mentoria'] },
+  { num: '18–36 meses', label: 'Afirmação', color: 'var(--red-dark)', icon: 'trophy', items: ['Digitalização total', '5 Conselhos Regionais', 'Barómetro de Fiscalidade', 'Parcerias internacionais', 'Programas de carreira', '80% satisfação membros'] },
 ];
 
 const EIXOS = [
   {
     icon: 'trophy', title: 'Valorização Profissional',
     desc: 'Afirmar o economista angolano como actor central no desenvolvimento económico, com reconhecimento formal e prestígio institucional.',
-    metas: ['Congresso Nacional � �0� 300 participantes', 'Prémio Anual do Economista', 'Programa de Mentoria � 30 pares', 'Literacia económica e financeira'],
+    metas: ['Congresso Nacional – ≥ 300 participantes', 'Prémio Anual do Economista', 'Programa de Mentoria – 30 pares', 'Literacia económica e financeira'],
   },
   {
     icon: 'announcement', title: 'Afirmação da Ordem',
     desc: 'Consolidar a OEA como referência técnica nacional, com voz activa no debate económico e presença internacional.',
-    metas: ['�0� 4 pareceres técnicos/ano', 'Conferência Anual do OGE', 'Revista, Cadernos e Anuário', 'Barómetro de Fiscalidade'],
+    metas: ['≥ 4 pareceres técnicos/ano', 'Conferência Anual do OGE', 'Revista, Cadernos e Anuário', 'Barómetro de Fiscalidade'],
   },
   {
     icon: 'laptop', title: 'Modernização Institucional',
-    desc: 'Digitalizar 100% dos serviços, instalar 5 Conselhos Regionais e garantir índice de satisfação dos membros �0� 80%.',
-    metas: ['Portal digital com �0� 3 serviços online', 'Base de dados actualizada 100%', 'Centro de Estudos e Formação', '�0� 5 Conselhos Regionais activos'],
+    desc: 'Digitalizar 100% dos serviços, instalar 5 Conselhos Regionais e garantir índice de satisfação dos membros ≥ 80%.',
+    metas: ['Portal digital com ≥ 3 serviços online', 'Base de dados actualizada 100%', 'Centro de Estudos e Formação', '≥ 5 Conselhos Regionais activos'],
   },
 ];
 
@@ -42,14 +42,14 @@ export default function PlanosActividadesPage() {
         <div className="section-inner">
           <div style={{ marginBottom: 16 }}>
             <Link to="/" style={{ fontSize: 13, color: 'var(--mid)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-              � � Voltar ao site
+              ← Voltar ao site
             </Link>
           </div>
           <div className="section-header">
             <div className="section-tag">Ordem</div>
             <div className="gold-sep" />
-            <h2 className="section-title">Plano de Acção Estratégico 2026�2030</h2>
-            <p className="section-desc">Valorizar o Economista, Afirmar a Ordem, Fortalecer Angola � o plano estratégico que orienta o mandato 2026�2030.</p>
+            <h2 className="section-title">Plano de Acção Estratégico 2026–2030</h2>
+            <p className="section-desc">Valorizar o Economista, Afirmar a Ordem, Fortalecer Angola – o plano estratégico que orienta o mandato 2026–2030.</p>
           </div>
 
           <div className="page-grid">
@@ -57,7 +57,7 @@ export default function PlanosActividadesPage() {
               <div className="reveal">
                 <h3>Enquadramento</h3>
                 <p>
-                  O Plano de Acção Estratégico 2026�2030 constitui o instrumento operacional de materialização 
+                  O Plano de Acção Estratégico 2026–2030 constitui o instrumento operacional de materialização 
                   do Manifesto Eleitoral apresentado no âmbito da eleição para o cargo de Bastonário da Ordem 
                   dos Economistas de Angola.
                 </p>
@@ -142,10 +142,10 @@ export default function PlanosActividadesPage() {
               <div className="page-sidebar-card" style={{ background: 'rgba(201,168,76,0.06)', border: '1px solid rgba(201,168,76,0.15)' }}>
                 <h4 style={{ color: 'var(--gold)' }}><Icon name="scroll" size={18} /> Documento</h4>
                 <p style={{ fontSize: 13, color: 'var(--mid)', lineHeight: 1.6 }}>
-                  O documento completo do Plano de Acção Estratégico 2026�2030 está disponível para consulta dos membros.
+                  O documento completo do Plano de Acção Estratégico 2026–2030 está disponível para consulta dos membros.
                 </p>
                 <p style={{ fontSize: 13, fontWeight: 600, color: 'var(--dark)', marginTop: 8 }}>
-                  <Icon name="scroll" size={14} /> Plano de Acção Estratégico OEA (2026�2030)
+                  <Icon name="scroll" size={14} /> Plano de Acção Estratégico OEA (2026–2030)
                 </p>
               </div>
             </div>

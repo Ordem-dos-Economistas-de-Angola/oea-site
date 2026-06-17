@@ -127,7 +127,7 @@ export default function AdminEventos() {
                 <div className="admin-form-row">
                   <div className="admin-form-group">
                     <label className="admin-form-label">Horário</label>
-                    <input className="admin-form-input" name="time" value={form.time} onChange={handleChange} placeholder="15:00 � 17:00" />
+                    <input className="admin-form-input" name="time" value={form.time} onChange={handleChange} placeholder="15:00 – 17:00" />
                   </div>
                   <div className="admin-form-group">
                     <label className="admin-form-label">Local</label>

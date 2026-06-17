@@ -46,14 +46,14 @@ export default function NoticiasPage() {
                   <h3 className="noticia-card-title">{n.title}</h3>
                   <p className="noticia-card-excerpt">{n.excerpt}</p>
                   <NewsEngagement item={n} />
-                  <div className="noticia-read-more">Ler notícia completa � </div>
+                  <div className="noticia-read-more">Ler notícia completa &rarr;</div>
                 </div>
               </Link>
             ))}
           </div>
 
           <div style={{textAlign:'center',marginTop:48}}>
-            <Link to="/" className="btn btn-outline">� � Voltar ao Início</Link>
+            <Link to="/" className="btn btn-outline">&larr; Voltar ao Início</Link>
           </div>
         </div>
       </section>

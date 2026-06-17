@@ -9,7 +9,7 @@ import '../OrdemPages.css';
 
 const VALORES = [
   { icon: 'trophy', title: 'Excelência', desc: 'Promoção da mais elevada qualidade técnica e científica no exercício da profissão de economista.' },
-  { icon: 'handshake', title: '�0tica e Deontologia', desc: 'Defesa intransigente dos princípios éticos, da honestidade intelectual e da responsabilidade profissional.' },
+  { icon: 'handshake', title: 'Ética e Deontologia', desc: 'Defesa intransigente dos princípios éticos, da honestidade intelectual e da responsabilidade profissional.' },
   { icon: 'globe', title: 'Responsabilidade Social', desc: 'Compromisso com o desenvolvimento económico sustentável e o bem-estar da sociedade angolana.' },
   { icon: 'lightbulb', title: 'Inovação', desc: 'Estímulo ao pensamento crítico, à investigação económica e à modernização institucional.' },
   { icon: 'scale', title: 'Independência', desc: 'Actuação com autonomia técnica, imparcialidade e isenção no exercício das funções consultivas.' },
@@ -27,7 +27,7 @@ export default function MissaoVisaoPage() {
         <div className="section-inner">
           <div style={{ marginBottom: 16 }}>
             <Link to="/" style={{ fontSize: 13, color: 'var(--mid)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-              � � Voltar ao site
+              ← Voltar ao site
             </Link>
           </div>
           <div className="section-header">

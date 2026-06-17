@@ -37,7 +37,7 @@ export default function DelegacaoNortePage() {
         <div className="section-inner">
           <div style={{ marginBottom: 16 }}>
             <Link to="/" style={{ fontSize: 13, color: 'var(--mid)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-              � � Voltar ao site
+              ← Voltar ao site
             </Link>
           </div>
           <div className="section-header">
@@ -142,7 +142,7 @@ export default function DelegacaoNortePage() {
               <div className="page-sidebar-card">
                 <h4><Icon name="globe" size={18} /> Expansão</h4>
                 <p style={{ fontSize: 13, color: 'var(--mid)', lineHeight: 1.6 }}>
-                  A OEA prevê a instalação de 5 Conselhos Regionais até 2030, no âmbito do Plano de Acção Estratégico 2026�2030, reforçando a descentralização e a proximidade com os membros.
+                  A OEA prevê a instalação de 5 Conselhos Regionais até 2030, no âmbito do Plano de Acção Estratégico 2026–2030, reforçando a descentralização e a proximidade com os membros.
                 </p>
               </div>
             </div>

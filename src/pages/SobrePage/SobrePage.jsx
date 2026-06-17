@@ -18,7 +18,7 @@ export default function SobrePage() {
         <div className="section-inner">
           <div style={{ marginBottom: 16 }}>
             <Link to="/" style={{ fontSize: 13, color: 'var(--mid)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-              � � Voltar ao site
+              ← Voltar ao site
             </Link>
           </div>
           <div className="section-header">
@@ -77,7 +77,7 @@ export default function SobrePage() {
               </div>
 
               <div className="reveal" style={{ marginTop: 32 }}>
-                <h4>�mbito de Actuação</h4>
+                <h4>Âmbito de Actuação</h4>
                 <p>
                   A OEA actua em todo o território nacional, através da sua Sede em Luanda e das Delegações Regionais 
                   (Norte, Centro, Leste e Sul), com planos de expansão para 5 Conselhos Regionais até 2030. 
@@ -106,7 +106,7 @@ export default function SobrePage() {
                 <div style={{ marginTop: 12, display: 'flex', flexDirection: 'column', gap: 6, fontSize: 13, color: 'var(--dark)' }}>
                   <span><Icon name="phone" size={13} /> (+244) 922-274-854</span>
                   <span><Icon name="email" size={13} /> geral@oea.economistas.ao</span>
-                  <span><Icon name="clock" size={13} /> Seg�Sex: 09h00�17h00</span>
+                  <span><Icon name="clock" size={13} /> Seg–Sex: 09h00–17h00</span>
                 </div>
               </div>
             </div>

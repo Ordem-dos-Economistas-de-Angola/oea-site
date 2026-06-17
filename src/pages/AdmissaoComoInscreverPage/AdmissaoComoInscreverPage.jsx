@@ -27,7 +27,7 @@ export default function AdmissaoComoInscreverPage() {
         <div className="section-inner">
           <div style={{ marginBottom: 16 }}>
             <Link to="/" style={{ fontSize: 13, color: 'var(--mid)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-              � � Voltar ao site
+              ← Voltar ao site
             </Link>
           </div>
           <div className="section-header">
@@ -82,7 +82,7 @@ export default function AdmissaoComoInscreverPage() {
                     Preencha o formulário de inscrição online. O processo é simples e rápido.
                   </p>
                   <Link to="/admissao" className="btn btn-primary" style={{ fontSize: 15, padding: '14px 36px' }}>
-                    Formulário de Inscrição � 
+                    Formulário de Inscrição →
                   </Link>
                   <p className="admissao-cta-note">
                     Alternativamente, entregue o processo completo na sede da OEA em Luanda.

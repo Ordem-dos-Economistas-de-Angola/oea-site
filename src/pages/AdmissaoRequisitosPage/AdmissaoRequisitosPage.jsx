@@ -36,7 +36,7 @@ export default function AdmissaoRequisitosPage() {
         <div className="section-inner">
           <div style={{ marginBottom: 16 }}>
             <Link to="/" style={{ fontSize: 13, color: 'var(--mid)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-              � � Voltar ao site
+              ← Voltar ao site
             </Link>
           </div>
           <div className="section-header">
@@ -95,7 +95,7 @@ export default function AdmissaoRequisitosPage() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                   {['Economia', 'Gestão', 'Finanças', 'Planeamento', 'Contabilidade', 'Administração Pública', 'Relações Internacionais', 'Estatística', 'Matemática Aplicada'].map((a) => (
                     <div key={a} style={{ fontSize: 13, color: 'var(--mid)', display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <span style={{ color: 'var(--gold)', fontSize: 10 }}>��</span> {a}
+                      <span style={{ color: 'var(--gold)', fontSize: 10 }}>★</span> {a}
                     </div>
                   ))}
                 </div>

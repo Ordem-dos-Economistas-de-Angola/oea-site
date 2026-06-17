@@ -18,7 +18,7 @@ export default function EstatutosPage() {
         <div className="section-inner">
           <div style={{ marginBottom: 16 }}>
             <Link to="/" style={{ fontSize: 13, color: 'var(--mid)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-              � � Voltar ao site
+              ← Voltar ao site
             </Link>
           </div>
           <div className="section-header">
@@ -46,14 +46,14 @@ export default function EstatutosPage() {
               <div className="reveal" style={{ marginTop: 32 }}>
                 <h4>Estrutura dos Estatutos</h4>
                 <ul>
-                  <li><strong>Capítulo I</strong> � Denominação, Natureza, Sede e Fins</li>
-                  <li><strong>Capítulo II</strong> � Dos Membros (categorias, direitos, deveres)</li>
-                  <li><strong>Capítulo III</strong> � Dos �rgãos da Ordem (Assembleia Geral, Conselho Directivo, Conselho Fiscal, Conselho Jurisdicional)</li>
-                  <li><strong>Capítulo IV</strong> � Das Delegações Regionais</li>
-                  <li><strong>Capítulo V</strong> � Do Exercício da Profissão</li>
-                  <li><strong>Capítulo VI</strong> � Do Regime Disciplinar</li>
-                  <li><strong>Capítulo VII</strong> � Do Património e Receitas</li>
-                  <li><strong>Capítulo VIII</strong> � Disposições Finais e Transitórias</li>
+                  <li><strong>Capítulo I</strong> – Denominação, Natureza, Sede e Fins</li>
+                  <li><strong>Capítulo II</strong> – Dos Membros (categorias, direitos, deveres)</li>
+                  <li><strong>Capítulo III</strong> – Dos Órgãos da Ordem (Assembleia Geral, Conselho Directivo, Conselho Fiscal, Conselho Jurisdicional)</li>
+                  <li><strong>Capítulo IV</strong> – Das Delegações Regionais</li>
+                  <li><strong>Capítulo V</strong> – Do Exercício da Profissão</li>
+                  <li><strong>Capítulo VI</strong> – Do Regime Disciplinar</li>
+                  <li><strong>Capítulo VII</strong> – Do Património e Receitas</li>
+                  <li><strong>Capítulo VIII</strong> – Disposições Finais e Transitórias</li>
                 </ul>
               </div>
 

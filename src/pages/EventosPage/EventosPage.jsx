@@ -51,7 +51,7 @@ export default function EventosPage() {
                 </div>
                 <div className="evento-all-footer">
                   <span className="evento-all-footer-label">{ev.status}</span>
-                  <span className="evento-all-cta">Detalhes � </span>
+                  <span className="evento-all-cta">Detalhes →</span>
                 </div>
               </Link>
             ))}
@@ -64,7 +64,7 @@ export default function EventosPage() {
                 disabled={page <= 1}
                 onClick={() => setPage(p => Math.max(1, p - 1))}
               >
-                � � Anterior
+                ← Anterior
               </button>
               <div className="eventos-page-numbers">
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
@@ -82,13 +82,13 @@ export default function EventosPage() {
                 disabled={page >= totalPages}
                 onClick={() => setPage(p => Math.min(totalPages, p + 1))}
               >
-                Seguinte � 
+                Seguinte →
               </button>
             </div>
           )}
 
           <div style={{textAlign:'center',marginTop:48}}>
-            <Link to="/" className="btn btn-outline">� � Voltar ao Início</Link>
+            <Link to="/" className="btn btn-outline">← Voltar ao Início</Link>
           </div>
         </div>
       </section>

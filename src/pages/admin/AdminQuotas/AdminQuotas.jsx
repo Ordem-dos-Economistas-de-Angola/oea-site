@@ -105,7 +105,7 @@ export default function AdminQuotas() {
         <div className="admin-modal-overlay" onClick={() => setSelectedMembro(null)}>
           <div className="admin-modal" onClick={e => e.stopPropagation()}>
             <div className="admin-modal-header">
-              <h3>Quotas � {selectedMembro.nome}</h3>
+              <h3>Quotas – {selectedMembro.nome}</h3>
               <button className="admin-btn-close" onClick={() => setSelectedMembro(null)}><Icon name="close" size={20} /></button>
             </div>
             <div className="admin-modal-body">
