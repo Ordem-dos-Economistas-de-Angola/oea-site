@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import ScrollTop from '../../components/ScrollTop/ScrollTop';
 import { useReveal, useScrollTop } from '../../hooks/useReveal';
-import { CATEGORIAS } from './state';
+import { useIndicadoresState } from './state';
 import './style.css';
 
 const statusIcon = {
@@ -23,6 +23,7 @@ const statusColor = {
 export default function IndicadoresPage() {
   useReveal();
   useScrollTop();
+  const { CATEGORIAS } = useIndicadoresState();
 
   return (
     <>

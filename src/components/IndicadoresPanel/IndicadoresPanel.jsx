@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Icon from '../Icon/Icon';
-import { INDICADORES_PRINCIPAIS } from '../../pages/IndicadoresPage/state';
+import { useIndicadoresState } from '../../pages/IndicadoresPage/state';
 import './style.css';
 
 const statusIcon = {
@@ -16,6 +16,7 @@ const statusColor = {
 };
 
 export default function IndicadoresPanel() {
+  const { INDICADORES_PRINCIPAIS } = useIndicadoresState();
   return (
     <section className="section indicadores-panel">
       <div className="section-inner">
