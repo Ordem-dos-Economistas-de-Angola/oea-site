@@ -65,11 +65,11 @@ export default function Footer() {
                   <Icon name="building" size={12} /> Sobre a OEA
                 </a>
               </li>
-              <li key="Como Aderir">
+              {/* <li key="Como Aderir">
                 <Link to="/admissao">
                   <Icon name="handshake" size={12} /> Como Aderir
                 </Link>
-              </li>
+              </li> */}
               <li key="Vantagens de Membro">
                 <a href="/#vantagens">
                   <Icon name="trophy" size={12} /> Vantagens de Membro

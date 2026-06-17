@@ -74,7 +74,7 @@ export default function LoginPage() {
 
               <p className="login-register">
                 Ainda não é membro?{' '}
-                <Link to="/admissao">Inscreva-se na OEA</Link>
+                {/* <Link to="/admissao">Inscreva-se na OEA</Link> */}
               </p>
             </div>
           </div>

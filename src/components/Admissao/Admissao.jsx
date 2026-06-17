@@ -77,13 +77,13 @@ export default function Admissao() {
                 e rápido. Após a submissão, a Comissão de Admissões analisará a
                 sua candidatura.
               </p>
-              <Link
+              {/* <Link
                 to="/admissao"
                 className="btn btn-primary"
                 style={{ fontSize: 15, padding: "14px 36px" }}
               >
                 Formulário de Inscrição →
-              </Link>
+              </Link> */}
               <p className="admissao-cta-note">
                 Alternativamente, entregue o processo completo na sede da OEA em
                 Luanda.

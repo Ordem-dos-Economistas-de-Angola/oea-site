@@ -65,7 +65,7 @@ export default function Navbar({ onSearchOpen }) {
           <div className="nav-actions">
             <button className="btn btn-outline" onClick={onSearchOpen}><Icon name="search" size={18} /></button>
             <Link to="/login" className="btn btn-outline">Entrar</Link>
-            <Link to="/admissao" className="btn btn-primary">Inscrição</Link>
+            {/* <Link to="/admissao" className="btn btn-primary">Inscrição</Link> */}
           </div>
           <button className="hamburger" onClick={toggleMobile} aria-label="Menu">
             <span /><span /><span />
@@ -79,14 +79,14 @@ export default function Navbar({ onSearchOpen }) {
           <Link to="/" onClick={closeMobile}>Início</Link>
           <Link to="/sobre" onClick={closeMobile}>Sobre a OEA</Link>
           <Link to="/delegacao-norte" onClick={closeMobile}>Delegações</Link>
-          <Link to="/admissao" onClick={closeMobile}>Admissões</Link>
+          {/* <Link to="/admissao" onClick={closeMobile}>Admissões</Link> */}
           <a href={h('#vantagens')} onClick={closeMobile}>Vantagens</a>
           {/* <a href={h('#protocolos')} onClick={closeMobile}>Protocolos</a> */}
           <Link to="/noticias" onClick={closeMobile}>Notícias</Link>
           <a href={h('#eventos')} onClick={closeMobile}>Eventos</a>
           <div className="mobile-nav-actions">
             <Link to="/login" className="btn btn-outline">Entrar na Área de Membros</Link>
-            <Link to="/admissao" className="btn btn-primary" onClick={closeMobile}>Inscrição na OEA</Link>
+            {/* <Link to="/admissao" className="btn btn-primary" onClick={closeMobile}>Inscrição na OEA</Link> */}
           </div>
         </div>
       )}

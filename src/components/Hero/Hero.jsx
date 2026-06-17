@@ -56,9 +56,9 @@ export default function Hero() {
             economia em todo o território nacional.
           </p>
           <div className="hero-actions">
-            <Link to="/admissao" className="btn btn-primary">
+            {/* <Link to="/admissao" className="btn btn-primary">
               Tornar-me Membro
-            </Link>
+            </Link> */}
             <a href="#sobre" className="btn btn-ghost">
               Conhecer a OEA
             </a>

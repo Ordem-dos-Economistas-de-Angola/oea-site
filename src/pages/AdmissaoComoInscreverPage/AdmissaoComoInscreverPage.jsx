@@ -81,9 +81,9 @@ export default function AdmissaoComoInscreverPage() {
                   <p className="admissao-cta-desc">
                     Preencha o formulário de inscrição online. O processo é simples e rápido.
                   </p>
-                  <Link to="/admissao" className="btn btn-primary" style={{ fontSize: 15, padding: '14px 36px' }}>
+                  {/* <Link to="/admissao" className="btn btn-primary" style={{ fontSize: 15, padding: '14px 36px' }}>
                     Formulário de Inscrição →
-                  </Link>
+                  </Link> */}
                   <p className="admissao-cta-note">
                     Alternativamente, entregue o processo completo na sede da OEA em Luanda.
                   </p>
