@@ -18,4 +18,7 @@ function spaFallback() {
 export default defineConfig({
   plugins: [react(), spaFallback()],
   appType: 'spa',
+  server: {
+    port: 3001,
+  },
 })

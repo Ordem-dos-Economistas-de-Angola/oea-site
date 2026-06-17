@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import api from '../services/api';
 import Topbar from '../components/Topbar';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -11,19 +12,30 @@ export default function LoginPage() {
   const [form, setForm] = useState({ email: '', password: '' });
   const [remember, setRemember] = useState(false);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setError('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (form.email === 'admin@oea.ao' && form.password === 'admin') {
-      localStorage.setItem('oea_admin_auth', JSON.stringify({ user: 'Administrador', email: form.email }));
+    setLoading(true);
+    setError('');
+    try {
+      const res = await api.post('/auth/login', {
+        email: form.email,
+        password: form.password,
+      });
+      const data = { ...res.data, email: form.email };
+      localStorage.setItem('oea_admin_auth', JSON.stringify(data));
       navigate('/admin');
-    } else {
-      setError('Credenciais inválidas. Tente novamente.');
+    } catch (err) {
+      const msg = err.response?.data?.message || 'Credenciais inválidas. Tente novamente.';
+      setError(msg);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -66,8 +78,8 @@ export default function LoginPage() {
                       </label>
                       <a href="#" className="login-forgot">Esqueceu a senha?</a>
                     </div>
-                    <button type="submit" className="btn btn-primary login-submit">
-                      Entrar
+                    <button type="submit" className="btn btn-primary login-submit" disabled={loading}>
+                      {loading ? 'A entrar...' : 'Entrar'}
                     </button>
                   </form>
 

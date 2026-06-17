@@ -27,10 +27,11 @@ import AdminNoticias from "./pages/admin/AdminNoticias";
 import AdminEventos from "./pages/admin/AdminEventos";
 import AdminMembros from "./pages/admin/AdminMembros";
 import AdminQuotas from "./pages/admin/AdminQuotas";
+import AdminLoginPage from "./pages/admin/AdminLoginPage";
 
 function ProtectedRoute({ children }) {
-  // const auth = localStorage.getItem('oea_admin_auth');
-  // if (!auth) return <Navigate to="/login" replace />;
+  const auth = localStorage.getItem('oea_admin_auth');
+  if (!auth) return <Navigate to="/login" replace />;
   return children;
 }
 
@@ -41,6 +42,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/admissao" element={<AdmissaoPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/admin/login" element={<AdminLoginPage />} />
         <Route path="/sobre" element={<SobrePage />} />
         <Route path="/missao-visao" element={<MissaoVisaoPage />} />
         <Route path="/estatutos" element={<EstatutosPage />} />

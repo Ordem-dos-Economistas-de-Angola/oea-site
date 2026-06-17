@@ -1,0 +1,132 @@
+.admin-login-root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f2f5;
+  font-family: 'DM Sans', sans-serif;
+  padding: 20px;
+}
+
+.admin-login-card {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.admin-login-left {
+  flex: 1;
+  background: #1a1a2e;
+  color: #fff;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.admin-login-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.admin-login-brand img {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+}
+
+.admin-login-brand h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.admin-login-welcome {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 12px;
+}
+
+.admin-login-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.admin-login-right {
+  flex: 1;
+  padding: 48px 40px;
+  display: flex;
+  align-items: center;
+}
+
+.admin-login-form {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.admin-login-form h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--black);
+  margin: 0 0 24px;
+}
+
+.admin-login-error {
+  padding: 10px 14px;
+  background: rgba(192,24,26,0.06);
+  border: 1px solid rgba(192,24,26,0.2);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--red);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.admin-login-submit {
+  width: 100%;
+  justify-content: center;
+  padding: 12px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.admin-login-link {
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--mid);
+  text-decoration: none;
+}
+
+.admin-login-link:hover {
+  color: var(--red);
+}
+
+@media (max-width: 768px) {
+  .admin-login-card {
+    flex-direction: column;
+    max-width: 420px;
+  }
+
+  .admin-login-left {
+    padding: 32px 24px;
+  }
+
+  .admin-login-right {
+    padding: 32px 24px;
+  }
+}

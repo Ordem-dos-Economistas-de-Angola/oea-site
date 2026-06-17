@@ -62,7 +62,7 @@ export default function AdminLayout({ children }) {
             <div className="admin-user-dropdown">
               <button className="admin-user-btn" onClick={() => setUserMenu(!userMenu)}>
                 <div className="admin-user-avatar">A</div>
-                <span>Administrador</span>
+                <span>{(() => { try { const d = JSON.parse(localStorage.getItem('oea_admin_auth')); return d.name || 'Administrador'; } catch { return 'Administrador'; } })()}</span>
               </button>
               {userMenu && (
                 <div className="admin-user-menu">

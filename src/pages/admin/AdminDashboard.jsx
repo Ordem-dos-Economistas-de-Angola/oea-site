@@ -1,10 +1,30 @@
 import { useState } from 'react';
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts';
 import AdminLayout from './AdminLayout';
 import Icon from '../../components/Icon';
-import { getStats } from './adminData';
+import { getStats, getMonthlyRevenue, getMonthlyMembers } from './adminData';
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+} from '../../components/ui/chart.jsx';
+import '../../components/ui/Chart.css';
 
 export default function AdminDashboard() {
   const [stats] = useState(() => getStats());
+  const [revenueData] = useState(() => getMonthlyRevenue());
+  const [memberData] = useState(() => getMonthlyMembers());
 
   const cards = [
     { label: 'Membros', value: stats.totalMembros, sub: `${stats.activos} activos`, icon: 'users', color: 'var(--red)' },
@@ -13,6 +33,19 @@ export default function AdminDashboard() {
     { label: 'Quotas Pagas', value: stats.quotasPagas, sub: `${stats.quotasPendentes} pendentes`, icon: 'wallet', color: 'var(--red-dark)' },
     { label: 'Receita', value: `${(stats.receitaRecebida / 1000).toFixed(0)}k`, sub: `${(stats.receitaPendente / 1000).toFixed(0)}k pendente`, icon: 'chart', color: 'var(--gold)' },
   ];
+
+  const revenueConfig = {
+    receita: { label: 'Receita Recebida', color: 'var(--red)' },
+    pendente: { label: 'Receita Pendente', color: 'var(--gold)' },
+  };
+
+  const memberConfig = {
+    activos: { label: 'Activos', color: 'var(--red)' },
+    pendentes: { label: 'Pendentes', color: 'var(--gold)' },
+    suspensos: { label: 'Suspensos', color: 'var(--gray)' },
+  };
+
+  const formatKz = (value) => `${value.toLocaleString()} Kz`;
 
   return (
     <AdminLayout>
@@ -40,6 +73,102 @@ export default function AdminDashboard() {
         <div className="admin-charts-row">
           <div className="admin-card">
             <div className="admin-card-header">
+              <h3>Receita Mensal</h3>
+            </div>
+            <div className="admin-card-body" style={{ height: 300, padding: '16px 20px 4px' }}>
+              <ChartContainer config={revenueConfig}>
+                <AreaChart data={revenueData} margin={{ top: 8, right: 8, left: -16, bottom: 4 }}>
+                  <defs>
+                    <linearGradient id="fillReceita" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="var(--red)" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="var(--red)" stopOpacity={0.02} />
+                    </linearGradient>
+                    <linearGradient id="fillPendente" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="var(--gold)" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="var(--gold)" stopOpacity={0.02} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="mes" tickLine={false} axisLine={false} dy={8} />
+                  <YAxis tickLine={false} axisLine={false} tickFormatter={(v) => `${v / 1000}k`} dx={-4} />
+                  <ChartTooltip
+                    cursor={{ stroke: 'var(--border)', strokeDasharray: '3 3' }}
+                    content={<ChartTooltipContent formatter={(value) => formatKz(value)} />}
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="receita"
+                    stroke="var(--red)"
+                    strokeWidth={2}
+                    fill="url(#fillReceita)"
+                    dot={false}
+                    activeDot={{ r: 5, fill: 'var(--red)', stroke: '#fff', strokeWidth: 2 }}
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="pendente"
+                    stroke="var(--gold)"
+                    strokeWidth={2}
+                    fill="url(#fillPendente)"
+                    dot={false}
+                    activeDot={{ r: 5, fill: 'var(--gold)', stroke: '#fff', strokeWidth: 2 }}
+                  />
+                  <ChartLegend content={<ChartLegendContent />} />
+                </AreaChart>
+              </ChartContainer>
+            </div>
+          </div>
+
+          <div className="admin-card">
+            <div className="admin-card-header">
+              <h3>Membros por Mês</h3>
+            </div>
+            <div className="admin-card-body" style={{ height: 300, padding: '16px 20px 4px' }}>
+              <ChartContainer config={memberConfig}>
+                <AreaChart data={memberData} margin={{ top: 8, right: 8, left: -16, bottom: 4 }}>
+                  <defs>
+                    <linearGradient id="fillActivos" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="var(--red)" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="var(--red)" stopOpacity={0.02} />
+                    </linearGradient>
+                    <linearGradient id="fillPendentes" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="var(--gold)" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="var(--gold)" stopOpacity={0.02} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="mes" tickLine={false} axisLine={false} dy={8} />
+                  <YAxis tickLine={false} axisLine={false} dx={-4} allowDecimals={false} />
+                  <ChartTooltip
+                    cursor={{ stroke: 'var(--border)', strokeDasharray: '3 3' }}
+                    content={<ChartTooltipContent />}
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="activos"
+                    stroke="var(--red)"
+                    strokeWidth={2}
+                    fill="url(#fillActivos)"
+                    dot={false}
+                    activeDot={{ r: 5, fill: 'var(--red)', stroke: '#fff', strokeWidth: 2 }}
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="pendentes"
+                    stroke="var(--gold)"
+                    strokeWidth={2}
+                    fill="url(#fillPendentes)"
+                    dot={false}
+                    activeDot={{ r: 5, fill: 'var(--gold)', stroke: '#fff', strokeWidth: 2 }}
+                  />
+                  <ChartLegend content={<ChartLegendContent />} />
+                </AreaChart>
+              </ChartContainer>
+            </div>
+          </div>
+
+          <div className="admin-card">
+            <div className="admin-card-header">
               <h3>Resumo de Receitas</h3>
             </div>
             <div className="admin-card-body">
@@ -60,71 +189,6 @@ export default function AdminDashboard() {
                   </div>
                   <div className="admin-progress-track">
                     <div className="admin-progress-fill" style={{ width: `${stats.receitaEsperada > 0 ? (stats.receitaPendente / stats.receitaEsperada) * 100 : 0}%`, background: 'var(--gold)' }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="admin-card">
-            <div className="admin-card-header">
-              <h3>Membros por Status</h3>
-            </div>
-            <div className="admin-card-body">
-              <div className="admin-progress-list">
-                <div className="admin-progress-item">
-                  <div className="admin-progress-label">
-                    <span>Activos</span>
-                    <span className="admin-progress-value">{stats.activos}</span>
-                  </div>
-                  <div className="admin-progress-track">
-                    <div className="admin-progress-fill" style={{ width: `${stats.totalMembros > 0 ? (stats.activos / stats.totalMembros) * 100 : 0}%`, background: 'var(--red)' }} />
-                  </div>
-                </div>
-                <div className="admin-progress-item">
-                  <div className="admin-progress-label">
-                    <span>Pendentes</span>
-                    <span className="admin-progress-value">{stats.pendentesAprovacao}</span>
-                  </div>
-                  <div className="admin-progress-track">
-                    <div className="admin-progress-fill" style={{ width: `${stats.totalMembros > 0 ? (stats.pendentesAprovacao / stats.totalMembros) * 100 : 0}%`, background: 'var(--gold)' }} />
-                  </div>
-                </div>
-                <div className="admin-progress-item">
-                  <div className="admin-progress-label">
-                    <span>Suspensos</span>
-                    <span className="admin-progress-value">{stats.suspensos}</span>
-                  </div>
-                  <div className="admin-progress-track">
-                    <div className="admin-progress-fill" style={{ width: `${stats.totalMembros > 0 ? (stats.suspensos / stats.totalMembros) * 100 : 0}%`, background: 'var(--gray)' }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="admin-card">
-            <div className="admin-card-header">
-              <h3>Quotas</h3>
-            </div>
-            <div className="admin-card-body">
-              <div className="admin-progress-list">
-                <div className="admin-progress-item">
-                  <div className="admin-progress-label">
-                    <span>Pagas</span>
-                    <span className="admin-progress-value">{stats.quotasPagas}</span>
-                  </div>
-                  <div className="admin-progress-track">
-                    <div className="admin-progress-fill" style={{ width: `${stats.totalQuotas > 0 ? (stats.quotasPagas / stats.totalQuotas) * 100 : 0}%`, background: 'var(--red)' }} />
-                  </div>
-                </div>
-                <div className="admin-progress-item">
-                  <div className="admin-progress-label">
-                    <span>Pendentes</span>
-                    <span className="admin-progress-value">{stats.quotasPendentes}</span>
-                  </div>
-                  <div className="admin-progress-track">
-                    <div className="admin-progress-fill" style={{ width: `${stats.totalQuotas > 0 ? (stats.quotasPendentes / stats.totalQuotas) * 100 : 0}%`, background: 'var(--gold)' }} />
                   </div>
                 </div>
               </div>

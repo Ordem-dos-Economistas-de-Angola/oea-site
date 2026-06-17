@@ -226,3 +226,31 @@ export function getStats() {
     receitaPendente: receitaEsperada - receitaRecebida,
   };
 }
+
+export function getMonthlyRevenue() {
+  const data = loadAdminData();
+  const meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'];
+  return meses.map((mes, i) => {
+    const mesNum = i + 1;
+    const quotasMes = data.quotas.filter(q => {
+      const qMes = [
+        'Janeiro','Fevereiro','Março','Abril','Maio','Junho',
+        'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'
+      ].indexOf(q.mes) + 1;
+      return qMes === mesNum && q.ano === 2026;
+    });
+    const pago = quotasMes.filter(q => q.estado === 'pago').length * 5000;
+    const pendente = quotasMes.filter(q => q.estado === 'pendente').length * 5000;
+    return { mes, receita: pago, pendente, total: pago + pendente };
+  });
+}
+
+export function getMonthlyMembers() {
+  const meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'];
+  return meses.map((mes, i) => {
+    const base = 10 + i * 2;
+    const activos = Math.round(base + Math.random() * 3);
+    const pendentes = Math.round(2 + Math.random() * 2);
+    return { mes, activos, pendentes, suspensos: 1 };
+  });
+}
