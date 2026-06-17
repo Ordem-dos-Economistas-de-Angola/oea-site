@@ -28,6 +28,7 @@ import AdminEventos from "./pages/admin/AdminEventos/AdminEventos";
 import AdminMembros from "./pages/admin/AdminMembros/AdminMembros";
 import AdminQuotas from "./pages/admin/AdminQuotas/AdminQuotas";
 import AdminLoginPage from "./pages/admin/AdminLoginPage/AdminLoginPage";
+import IndicadoresPage from "./pages/IndicadoresPage/IndicadoresPage";
 
 function ProtectedRoute({ children }) {
   const auth = localStorage.getItem('oea_admin_auth');
@@ -71,6 +72,7 @@ export default function App() {
         <Route path="/noticia/:id" element={<NoticiaPage />} />
         <Route path="/eventos" element={<EventosPage />} />
         <Route path="/evento/:id" element={<EventoPage />} />
+        <Route path="/indicadores" element={<IndicadoresPage />} />
         <Route
           path="/admin"
           element={

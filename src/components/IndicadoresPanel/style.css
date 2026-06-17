@@ -1,0 +1,25 @@
+.indicadores-panel { background: var(--black); color: white; }
+.indicadores-panel .section-title { color: white; }
+.indicadores-panel .section-desc { color: rgba(255,255,255,0.5); }
+.indicadores-panel .section-tag { color: var(--gold); }
+.indicadores-panel .section-tag::before { background: var(--gold); }
+
+.indicadores-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px; }
+
+.indicador-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px; transition: all var(--transition); position: relative; overflow: hidden; }
+.indicador-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); transform: scaleX(0); transition: transform var(--transition); }
+.indicador-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(201,168,76,0.3); transform: translateY(-4px); }
+.indicador-card:hover::before { transform: scaleX(1); }
+
+.indicador-card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+
+.indicador-valor { font-family: 'Playfair Display', serif; font-size: clamp(24px, 2.5vw, 36px); font-weight: 700; color: white; margin-bottom: 16px; line-height: 1.1; }
+
+.indicador-card-footer { display: flex; align-items: center; justify-content: space-between; }
+.indicador-change { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; }
+.indicador-status { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: white; padding: 3px 10px; border-radius: 100px; }
+
+.indicadores-cta { text-align: center; margin-top: 40px; }
+
+@media (max-width: 1024px) { .indicadores-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .indicadores-grid { grid-template-columns: 1fr; } }

@@ -6,6 +6,7 @@ import Sobre from '../../components/Sobre/Sobre';
 import Noticias from '../../components/Noticias/Noticias';
 import Eventos from '../../components/Eventos/Eventos';
 import Pilares from '../../components/Pilares/Pilares';
+import IndicadoresPanel from '../../components/IndicadoresPanel/IndicadoresPanel';
 import Admissao from '../../components/Admissao/Admissao';
 import Vantagens from '../../components/Vantagens/Vantagens';
 import Delegacoes from '../../components/Delegacoes/Delegacoes';
@@ -33,6 +34,7 @@ export default function Home() {
       <Sobre />
       <Noticias />
       <Eventos />
+      <IndicadoresPanel />
       <Pilares />
       <Admissao />
       <Vantagens />

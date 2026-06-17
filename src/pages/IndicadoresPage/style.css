@@ -1,0 +1,25 @@
+.indicadores-page { padding: 48px 0 96px; }
+
+.indicadores-breadcrumb { font-size: 13px; color: var(--mid); margin-bottom: 32px; }
+.indicadores-breadcrumb a { color: var(--red); text-decoration: none; }
+.indicadores-breadcrumb a:hover { text-decoration: underline; }
+
+.indicadores-categoria { margin-bottom: 56px; }
+.indicadores-categoria-header { margin-bottom: 20px; }
+.indicadores-categoria-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); }
+.indicadores-categoria-tag::before { content: ''; display: block; width: 24px; height: 2px; background: var(--red); }
+
+.indicadores-categoria-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+
+.indicador-full-card { display: flex; gap: 20px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: all var(--transition); }
+.indicador-full-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+
+.indicador-full-icon { width: 48px; height: 48px; background: rgba(192,24,26,0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--red); flex-shrink: 0; }
+
+.indicador-full-body { flex: 1; min-width: 0; }
+.indicador-full-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--mid); margin-bottom: 4px; }
+.indicador-full-valor { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--black); line-height: 1.2; margin-bottom: 6px; }
+.indicador-full-desc { font-size: 13px; color: var(--mid); line-height: 1.5; margin-bottom: 12px; }
+.indicador-full-footer { display: flex; align-items: center; gap: 12px; }
+.indicador-full-change { display: inline-flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 600; }
+.indicador-full-status { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: white; padding: 3px 10px; border-radius: 100px; }
