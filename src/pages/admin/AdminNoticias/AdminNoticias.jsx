@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import Select from 'react-select';
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
@@ -6,18 +7,158 @@ import 'react-toastify/dist/ReactToastify.css';
 import Icon from '../../../components/Icon/Icon';
 import AdminLayout from '../AdminLayout/AdminLayout';
 import { useAdminNoticiasState } from './state';
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '../../../components/ui/table/table';
+import { Badge } from '../../../components/ui/badge/badge';
+import { Pagination } from '../../../components/ui/pagination/pagination';
+import '../../../styles/shadcn.css';
 import './style.css';
 
 const TAG_OPTIONS = ['Institucional', 'Estratégia', 'Protocolos', 'Parecer Técnico', 'Formação', 'Internacional', 'Actualização'];
 const CATEGORY_OPTIONS = ['NEWS', 'ANNOUNCEMENTS', 'EVENTS', 'PUBLICATIONS', 'LEGISLATION'];
 const categorySelectOptions = CATEGORY_OPTIONS.map(c => ({ value: c, label: c }));
+const STATUS_OPTIONS = [{ value: 'published', label: 'Publicado' }, { value: 'draft', label: 'Rascunho' }];
+
+const categoryColors = {
+  NEWS: '#cbd5e1',
+  ANNOUNCEMENTS: '#93c5fd',
+  EVENTS: '#a5b4fc',
+  PUBLICATIONS: '#c4b5fd',
+  LEGISLATION: '#86efac',
+};
+
+const statusLabels = { published: 'Publicado', draft: 'Rascunho' };
+
+function FilterSheet({ s }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button className="admin-btn admin-btn-outline" onClick={() => setOpen(true)}>
+        <Icon name="filter" size={16} /> Filtros
+        {s.activeFilterCount > 0 && (
+          <span className="filter-count-badge">{s.activeFilterCount}</span>
+        )}
+      </button>
+      {open && (
+        <>
+          <div className="offcanvas-overlay" onClick={() => setOpen(false)} />
+          <div className="offcanvas-panel">
+            <div className="offcanvas-header">
+              <h3>Filtros</h3>
+              <p>Filtrar notícias por categoria, estado ou tags</p>
+              <button className="offcanvas-close" onClick={() => setOpen(false)}>
+                <Icon name="close" size={16} />
+              </button>
+            </div>
+            <div className="offcanvas-body">
+              <div className="admin-form-group">
+                <label className="admin-form-label">Categoria</label>
+                <Select
+                  options={categorySelectOptions}
+                  value={categorySelectOptions.find(o => o.value === s.filters.category) || null}
+                  onChange={o => s.setFilter('category', o ? o.value : null)}
+                  placeholder="Todas as categorias"
+                  isClearable
+                  isSearchable={false}
+                  styles={{ control: (base) => ({ ...base, borderColor: 'var(--border)', borderRadius: 8, minHeight: 38, fontFamily: 'inherit', fontSize: 13 }), menu: (base) => ({ ...base, borderRadius: 8, fontSize: 13 }), option: (base, { isFocused, isSelected }) => ({ ...base, backgroundColor: isSelected ? 'var(--red)' : isFocused ? 'var(--light)' : 'transparent', color: isSelected ? '#fff' : 'var(--dark)' }) }}
+                />
+              </div>
+              <div className="admin-form-group">
+                <label className="admin-form-label">Estado</label>
+                <Select
+                  options={STATUS_OPTIONS}
+                  value={STATUS_OPTIONS.find(o => o.value === s.filters.status) || null}
+                  onChange={o => s.setFilter('status', o ? o.value : null)}
+                  placeholder="Todos os estados"
+                  isClearable
+                  isSearchable={false}
+                  styles={{ control: (base) => ({ ...base, borderColor: 'var(--border)', borderRadius: 8, minHeight: 38, fontFamily: 'inherit', fontSize: 13 }), menu: (base) => ({ ...base, borderRadius: 8, fontSize: 13 }), option: (base, { isFocused, isSelected }) => ({ ...base, backgroundColor: isSelected ? 'var(--red)' : isFocused ? 'var(--light)' : 'transparent', color: isSelected ? '#fff' : 'var(--dark)' }) }}
+                />
+              </div>
+              <div className="admin-form-group">
+                <label className="admin-form-label">Tags</label>
+                <div className="an-tag-list">
+                  {TAG_OPTIONS.map(t => (
+                    <label key={t} className={`an-tag-chip ${s.filters.tags.includes(t) ? 'active' : ''}`}>
+                      <input type="checkbox" checked={s.filters.tags.includes(t)} onChange={() => {
+                        s.setFilter('tags', s.filters.tags.includes(t) ? s.filters.tags.filter(x => x !== t) : [...s.filters.tags, t]);
+                      }} hidden />
+                      {t}
+                    </label>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="offcanvas-footer">
+              <button className="admin-btn admin-btn-outline" onClick={s.clearFilters} style={{ flex: 1 }}>Limpar filtros</button>
+            </div>
+          </div>
+        </>
+      )}
+    </>
+  );
+}
+
+function FilterBar({ s }) {
+  const chips = [];
+  if (s.filters.category) chips.push({ key: 'category', label: `Categoria: ${s.filters.category}`, onRemove: () => s.removeFilter('category') });
+  if (s.filters.status) chips.push({ key: 'status', label: `Estado: ${statusLabels[s.filters.status]}`, onRemove: () => s.removeFilter('status') });
+  s.filters.tags.forEach(t => chips.push({ key: `tag-${t}`, label: t, onRemove: () => s.removeTagFilter(t) }));
+
+  if (!chips.length) return null;
+
+  return (
+    <div className="filter-bar">
+      {chips.map(chip => (
+        <Badge key={chip.key} variant="secondary" className="shadcn-badge-clickable">
+          {chip.label}
+          <button className="shadcn-badge-remove" onClick={chip.onRemove}>&times;</button>
+        </Badge>
+      ))}
+      <button className="admin-btn-sm" onClick={s.clearFilters} style={{ marginLeft: 8, fontSize: 12 }}>Limpar</button>
+    </div>
+  );
+}
+
+function ActionDropdown({ n, s }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [open]);
+
+  return (
+    <div className="action-dropdown" ref={ref}>
+      <button className="action-dropdown-trigger" title="Opções" onClick={() => setOpen(!open)}>
+        <Icon name="more-horizontal" size={16} />
+      </button>
+      {open && (
+        <div className="action-dropdown-menu">
+          <button className="action-dropdown-item" onClick={() => { setOpen(false); s.openEdit(n); }}>
+            <Icon name="edit" size={14} /> Editar
+          </button>
+          <div className="action-dropdown-divider" />
+          <button className="action-dropdown-item action-dropdown-item-danger" onClick={() => { setOpen(false); s.handleDelete(n.id); }}>
+            <Icon name="trash" size={14} /> Eliminar
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function AdminNoticias() {
   const s = useAdminNoticiasState();
 
   return (
     <AdminLayout>
-      <ToastContainer position="bottom-right" autoClose={3000} theme="colored" hideProgressBar />
+      <ToastContainer position="top-right" autoClose={3000} theme="light" />
       <div className="admin-page">
         <div className="admin-page-header">
           <div>
@@ -36,56 +177,67 @@ export default function AdminNoticias() {
         </div>
 
         {s.tab === 'list' && (
-          <div className="admin-card">
-            <div className="admin-table-toolbar">
-              <input className="admin-search-input" placeholder="Pesquisar notícias..." value={s.search} onChange={e => s.setSearch(e.target.value)} />
+          <div className="admin-card" style={{ padding: 0 }}>
+            <div className="list-toolbar">
+              <input className="admin-search-input" placeholder="Pesquisar notícias..." value={s.search} onChange={e => { s.setSearch(e.target.value); s.setPage(1); }} style={{ width: 280 }} />
+              <div className="list-toolbar-spacer" />
+              <FilterSheet s={s} />
               <button className="admin-btn admin-btn-primary" onClick={s.openNew}>
                 <Icon name="edit" size={16} /> Nova Notícia
               </button>
             </div>
-            <div className="admin-table-wrap">
-              <table className="admin-table">
-                <thead>
-                  <tr>
-                    <th>Título</th>
-                    <th>Categoria</th>
-                    <th>Estado</th>
-                    <th>Data</th>
-                    <th style={{ width: 120 }}>Acções</th>
-                  </tr>
-                </thead>
-                <tbody>
+            <div style={{ padding: '0 16px' }}>
+              <FilterBar s={s} />
+            </div>
+            <div style={{ overflowX: 'auto' }}>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead style={{ paddingLeft: 28, width: '40%' }}>Título</TableHead>
+                    <TableHead style={{ width: '15%' }}>Categoria</TableHead>
+                    <TableHead style={{ width: '12%' }}>Estado</TableHead>
+                    <TableHead style={{ width: '15%' }}>Data</TableHead>
+                    <TableHead style={{ width: 100, textAlign: 'center' }}>Acções</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
                   {s.loading && (
-                    <tr><td colSpan={5} style={{ textAlign: 'center', padding: 32, color: 'var(--mid)' }}>A carregar...</td></tr>
+                    <TableRow>
+                      <TableCell colSpan={5} style={{ textAlign: 'center', padding: 32, color: 'var(--muted-foreground)' }}>A carregar...</TableCell>
+                    </TableRow>
                   )}
                   {!s.loading && s.noticias.map(n => (
-                    <tr key={n.id}>
-                      <td><span className="admin-table-title">{n.title}</span></td>
-                      <td><span className="admin-badge" style={{ background: n.category === 'NEWS' ? 'var(--red)' : 'var(--gold)' }}>{n.category}</span></td>
-                      <td>
+                    <TableRow key={n.id}>
+                      <TableCell style={{ paddingLeft: 28 }}>
+                        <span className="truncate" style={{ display: 'block', maxWidth: 400, fontWeight: 500 }}>{n.title}</span>
+                      </TableCell>
+                      <TableCell>
+                        <span style={{ fontSize: 12, fontWeight: 600, color: categoryColors[n.category] }}>
+                          {n.category}
+                        </span>
+                      </TableCell>
+                      <TableCell>
                         <span className={`admin-status ${n.published ? 'admin-status-success' : 'admin-status-muted'}`}>
                           {n.published ? 'Publicado' : 'Rascunho'}
                         </span>
-                      </td>
-                      <td className="admin-table-muted">{n.publishedAt ? new Date(n.publishedAt).toLocaleDateString('pt-PT') : n.createdAt ? new Date(n.createdAt).toLocaleDateString('pt-PT') : '-'}</td>
-                      <td>
-                        <div className="admin-table-actions">
-                          <button className="admin-btn-sm" title="Editar" onClick={() => s.openEdit(n)}>
-                            <Icon name="edit" size={15} />
-                          </button>
-                          <button className="admin-btn-sm admin-btn-danger" title="Eliminar" onClick={() => s.handleDelete(n.id)}>
-                            <Icon name="close" size={15} />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
+                      </TableCell>
+                      <TableCell className="text-muted-foreground text-sm">
+                        {n.publishedAt ? new Date(n.publishedAt).toLocaleDateString('pt-PT') : n.createdAt ? new Date(n.createdAt).toLocaleDateString('pt-PT') : '-'}
+                      </TableCell>
+                      <TableCell style={{ textAlign: 'center' }}>
+                        <ActionDropdown n={n} s={s} />
+                      </TableCell>
+                    </TableRow>
                   ))}
                   {!s.loading && s.noticias.length === 0 && (
-                    <tr><td colSpan={5} style={{ textAlign: 'center', padding: 32, color: 'var(--mid)' }}>Nenhuma notícia encontrada</td></tr>
+                    <TableRow>
+                      <TableCell colSpan={5} style={{ textAlign: 'center', padding: 32, color: 'var(--muted-foreground)' }}>Nenhuma notícia encontrada</TableCell>
+                    </TableRow>
                   )}
-                </tbody>
-              </table>
+                </TableBody>
+              </Table>
             </div>
+            <Pagination total={s.totalFiltered} page={s.page} perPage={s.perPage} onChange={s.setPage} />
           </div>
         )}
 

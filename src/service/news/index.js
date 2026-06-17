@@ -18,3 +18,8 @@ export async function update(id, data) {
 export async function remove(id) {
   await api.delete(`/admin/news/${id}`);
 }
+
+export async function getById(id) {
+  const res = await api.get(`/admin/news/${id}`);
+  return res.data;
+}

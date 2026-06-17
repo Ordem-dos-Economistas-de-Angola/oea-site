@@ -1,4 +1,4 @@
-import { NOTICIAS as INITIAL_NOTICIAS, EVENTOS as INITIAL_EVENTOS } from '../../data/content';
+import { EVENTOS as INITIAL_EVENTOS } from '../../data/content';
 
 const ADMIN_STORAGE_KEY = 'oea_admin_data';
 
@@ -85,38 +85,6 @@ export function loadAdminData() {
 
 export function saveAdminData(data) {
   localStorage.setItem(ADMIN_STORAGE_KEY, JSON.stringify(data));
-}
-
-export function getNoticias() {
-  const data = loadAdminData();
-  if (data.noticias.length === 0) {
-    data.noticias = INITIAL_NOTICIAS.map(n => ({ ...n }));
-    saveAdminData(data);
-  }
-  return data.noticias;
-}
-
-export function addNoticia(noticia) {
-  const data = loadAdminData();
-  const nova = { ...noticia, id: generateId(data.noticias) };
-  data.noticias.unshift(nova);
-  saveAdminData(data);
-  return nova;
-}
-
-export function updateNoticia(id, fields) {
-  const data = loadAdminData();
-  const idx = data.noticias.findIndex(n => n.id === id);
-  if (idx === -1) return null;
-  data.noticias[idx] = { ...data.noticias[idx], ...fields };
-  saveAdminData(data);
-  return data.noticias[idx];
-}
-
-export function deleteNoticia(id) {
-  const data = loadAdminData();
-  data.noticias = data.noticias.filter(n => n.id !== id);
-  saveAdminData(data);
 }
 
 export function getEventos() {

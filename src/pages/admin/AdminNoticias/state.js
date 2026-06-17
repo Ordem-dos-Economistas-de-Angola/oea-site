@@ -27,18 +27,32 @@ export function useAdminNoticiasState() {
   const [search, setSearch] = useState('');
   const [saving, setSaving] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(null);
+  const [filters, setFilters] = useState({ category: null, status: null, tags: [] });
+  const [page, setPage] = useState(1);
+  const perPage = 8;
 
   const loadNoticias = useCallback(async () => {
     setLoading(true);
     try {
-      const data = await newsApi.list({ search });
-      setNoticias(Array.isArray(data) ? data : data.data || []);
-    } catch {
+      const params = { search };
+      if (filters.category) params.category = filters.category;
+      if (filters.status) params.status = filters.status;
+      if (filters.tags.length) params.tags = filters.tags.join(',');
+
+      const data = await newsApi.list(params);
+      const items = Array.isArray(data) ? data
+        : Array.isArray(data.data) ? data.data
+        : Array.isArray(data.noticias) ? data.noticias
+        : Array.isArray(data.news) ? data.news
+        : data?.rows || data?.items || [];
+      setNoticias(items);
+    } catch (e) {
+      console.error('Erro ao carregar notícias:', e);
       setNoticias([]);
     } finally {
       setLoading(false);
     }
-  }, [search]);
+  }, [search, filters]);
 
   useEffect(() => { loadNoticias(); }, [loadNoticias]);
 
@@ -74,22 +88,46 @@ export function useAdminNoticiasState() {
   };
 
   const openEdit = async (item) => {
-    setForm({
-      title: item.title || '',
-      summary: item.summary || '',
-      content: item.content || '',
-      category: item.category || 'NEWS',
-      tags: item.tags || [],
-      author: item.author || '',
-      published: item.published || false,
-      featured: item.featured || false,
-      featuredImage: item.featuredImage || null,
-      video: item.video || null,
-      imageGallery: item.imageGallery || [],
-    });
-    setEditingId(item.id);
-    setTab('form');
-    setFormTab('geral');
+    try {
+      const detail = await newsApi.getById(item.id);
+      const d = detail.data || detail.noticia || detail.news || detail || {};
+      setForm({
+        title: d.title || '',
+        summary: d.summary || '',
+        content: d.content || '',
+        category: d.category || 'NEWS',
+        tags: d.tags || [],
+        author: d.author || '',
+        published: d.published || false,
+        featured: d.featured || false,
+        featuredImage: d.featuredImage || null,
+        video: d.video || null,
+        imageGallery: d.imageGallery || [],
+      });
+      setEditingId(item.id);
+      setTab('form');
+      setFormTab('geral');
+    } catch (err) {
+      console.error('Erro ao carregar detalhes, a usar dados da listagem:', err);
+      toast.warn('A usar dados da listagem — detalhe não disponível');
+      const d = item;
+      setForm({
+        title: d.title || '',
+        summary: d.summary || '',
+        content: d.content || '',
+        category: d.category || 'NEWS',
+        tags: d.tags || [],
+        author: d.author || '',
+        published: d.published || false,
+        featured: d.featured || false,
+        featuredImage: d.featuredImage || null,
+        video: d.video || null,
+        imageGallery: d.imageGallery || [],
+      });
+      setEditingId(item.id);
+      setTab('form');
+      setFormTab('geral');
+    }
   };
 
   const handleSave = async (e) => {
@@ -199,12 +237,47 @@ export function useAdminNoticiasState() {
     setEditingId(null);
   };
 
-  const filtered = noticias.filter(n =>
-    n.title?.toLowerCase().includes(search.toLowerCase())
-  );
+  const setFilter = (key, value) => {
+    setFilters(f => ({ ...f, [key]: value }));
+    setPage(1);
+  };
+
+  const removeFilter = (key) => {
+    setFilters(f => {
+      const next = { ...f };
+      if (key === 'tags') next.tags = [];
+      else next[key] = null;
+      return next;
+    });
+    setPage(1);
+  };
+
+  const removeTagFilter = (tag) => {
+    setFilters(f => ({ ...f, tags: f.tags.filter(t => t !== tag) }));
+    setPage(1);
+  };
+
+  const clearFilters = () => {
+    setFilters({ category: null, status: null, tags: [] });
+    setPage(1);
+  };
+
+  const filtered = noticias.filter(n => {
+    const matchSearch = !search || n.title?.toLowerCase().includes(search.toLowerCase());
+    const matchCategory = !filters.category || n.category === filters.category;
+    const matchStatus = !filters.status || (filters.status === 'published' ? n.published : !n.published);
+    const matchTags = !filters.tags.length || filters.tags.some(t => n.tags?.includes(t));
+    return matchSearch && matchCategory && matchStatus && matchTags;
+  });
+
+  const totalFiltered = filtered.length;
+  const paginated = filtered.slice((page - 1) * perPage, page * perPage);
+
+  const activeFilterCount = [filters.category, filters.status, ...(filters.tags.length ? ['_'] : [])].filter(Boolean).length;
 
   return {
-    noticias: filtered,
+    noticias: paginated,
+    allNoticias: noticias,
     loading,
     tab, setTab,
     formTab, setFormTab,
@@ -213,6 +286,10 @@ export function useAdminNoticiasState() {
     search, setSearch,
     saving,
     uploadProgress,
+    filters, setFilter, removeFilter, removeTagFilter, clearFilters,
+    page, setPage, perPage,
+    totalFiltered,
+    activeFilterCount,
     handleChange,
     handleCategoryChange,
     handleSummaryChange,
